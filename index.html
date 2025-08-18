@@ -91,7 +91,7 @@
       <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside">
         <li>Scaled Noon's Abu Dhabi product portfolio with 200+ new SKUs launched.</li>
         <li>Improved vendor activation by 25% and reduced time to market by 15%.</li>
-        <li>Built financial models at RobtStone to guide multi-million dollar investments.</li>
+        <li>Built financial models at RobtStone to evaluate million dollar investments.</li>
         <li>Boosted campaign ROI by 12% through market research at RCW Media Group.</li>
       </ul>
     </div>
@@ -122,7 +122,7 @@
         <h3 class="font-semibold">RobtStone — Financial Analyst Intern</h3>
         <p class="text-sm text-slate-500">Abu Dhabi • 2022 - 2023 </p>
         <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
-          <li>Evaluated multi-million dollar oil & gas investment opportunities.</li>
+          <li>Evaluated million dollar oil & gas investment opportunities.</li>
           <li>Built financial models and delivered board-ready recommendations.</li>
           <li>Supported leadership in assessing risk and return on new projects.</li>
         </ul>
@@ -221,21 +221,42 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    async function loadProjects() {
-      try {
-        const res = await fetch('projects.json');
-        if (!res.ok) return;
-        const data = await res.json();
-        const grid = document.getElementById('projects-grid');
-        grid.innerHTML = '';
-        data.forEach(p => {
-          const a = document.createElement('a');
-          a.href = p.link || '#';
-          a.target = p.link ? '_blank' : '';
-          a.rel = p.link ? 'noreferrer' : '';
-          a.className = 'card block rounded-2xl p-5 bg-white hover:-translate-y-0.5 transition will-change-transform';
-          a.innerHTML = `
-            <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
-            <div class="font-semibold">${p.title}</div>
-            <
+    <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  async function loadProjects() {
+    const grid = document.getElementById('projects-grid');
+    try {
+      // Cache-buster so updates show immediately
+      const res = await fetch('./projects.json?v=' + Date.now());
+      if (!res.ok) throw new Error('projects.json not found');
+      const data = await res.json();
+
+      if (!Array.isArray(data) || data.length === 0) {
+        grid.innerHTML = '<p class="text-slate-500">No projects yet.</p>';
+        return;
+      }
+
+      grid.innerHTML = '';
+      data.forEach(p => {
+        const a = document.createElement('a');
+        a.href = p.link || '#';
+        a.target = p.link ? '_blank' : '';
+        a.rel = p.link ? 'noreferrer' : '';
+        a.className = 'card block rounded-2xl p-5 bg-white hover:-translate-y-0.5 transition will-change-transform';
+        a.innerHTML = `
+          <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
+          <div class="font-semibold">${p.title || 'Untitled project'}</div>
+          <p class="text-sm text-slate-600 mt-2">${p.blurb || ''}</p>
+        `;
+        grid.appendChild(a);
+      });
+    } catch (err) {
+      console.error('Project load error:', err);
+      grid.innerHTML = '<p class="text-rose-600">Could not load projects.json. Check the filename/path and JSON syntax.</p>';
+    }
+  }
+
+  // Ensure HTML is parsed before running
+  document.addEventListener('DOMContentLoaded', loadProjects);
+</script>
