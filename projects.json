@@ -7,8 +7,8 @@
   },
   {
     "title": "First Goal Impact Analysis: La Liga 2023–24",
-    "blurb": "Analyzed 380 La Liga (Spanish soccer league) matches to study how scoring first affects win probability. Built predictive models in Python (Logistic Regression, Decision Trees, Random Forest) and used clustering to profile team strategies.",
-    "tag": "Sports Analytics",
+    "blurb": "Analyzed 300+ La Liga matches to study how scoring first affects win probability. Built predictive models using Python (Logistic Regression, Decision Trees, Random Forest) and used clustering to profile team strategies.",
+    "tag": "Predictive Modeling",
     "link": "sports-analytics-salah.pdf"
   }
 ]
