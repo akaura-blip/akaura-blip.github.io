@@ -1,7 +1,14 @@
-[{
-  "title": "Ziina Purple: Fintech Subscription Case Study",
-  "blurb": "Built a go-to-market strategy for Ziina’s premium subscription, analyzing fintech trends, defining benefits, and integrating the Ziina Card with culturally relevant features.",
-  "tag": "Strategy & Product",
-  "link": "ziina-purple.pdf"
-}
+[
+  {
+    "title": "Ziina Purple: Fintech Subscription Case Study",
+    "blurb": "Built a go-to-market strategy for Ziina’s premium subscription, analyzing fintech trends, defining benefits, and integrating the Ziina Card.",
+    "tag": "Strategy & Product",
+    "link": "ziina-purple.pdf"
+  },
+  {
+    "title": "Premier League Player Metrics → Match Outcome",
+    "blurb": "Built logistic models in Python using offensive stats to predict win/draw/loss; compared validation set, K-Fold, and LOOCV performance.",
+    "tag": "Sports Analytics",
+    "link": "sports-analytics-salah.pdf"
+  }
 ]
