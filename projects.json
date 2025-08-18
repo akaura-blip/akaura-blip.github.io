@@ -6,9 +6,9 @@
     "link": "ziina-purple.pdf"
   },
   {
-    "title": "Premier League Player Metrics → Match Outcome",
-    "blurb": "Built logistic models in Python using offensive stats to predict win/draw/loss; compared validation set, K-Fold, and LOOCV performance.",
-    "tag": "Sports Analytics",
-    "link": "sports-analytics-salah.pdf"
-  }
+  "title": "First Goal Impact Analysis : La Liga 2023–24",
+  "blurb": "Analyzed 380 La Liga (Spanish socccer league) matches to study how scoring first affects win probability. Built predictive models in Python (Logistic Regression, Decision Trees, Random Forest) and used clustering to profile team strategies.",
+  "tag": "Sports Analytics",
+  "link": "sports-first-goal.pdf"
+}
 ]
