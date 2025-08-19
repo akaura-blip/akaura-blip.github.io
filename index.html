@@ -41,10 +41,20 @@
       transform: translateY(-4px);
       box-shadow: 0 15px 40px rgba(0,0,0,0.12);
     }
+
+    /* Sticky left labels for block sections */
+    .section-label {
+      position: sticky;
+      top: 6rem;
+    }
+    @media (max-width: 1024px) {
+      .section-label { position: static; top: auto; }
+    }
   </style>
 </head> 
 
 <body class="font-sans text-slate-800"> 
+
   <!-- Nav --> 
   <header class="flex items-center justify-between py-6 px-4 sm:px-6 lg:px-8"> 
     <div class="text-lg font-semibold">Aman Kaura</div> 
@@ -124,124 +134,136 @@
   </div>
 </section>
 
+<!-- Highlights (block section) -->
+<section id="highlights" class="bg-slate-50/80">
+  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
+    <!-- left label -->
+    <aside class="lg:col-span-3">
+      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.25l-6.16 3.73 1.64-7.03-5.48-4.75 7.19-.62L12 2l2.81 6.58 7.19.62-5.48 4.75 1.64 7.03z"/></svg>
+        Highlights
+      </div>
+    </aside>
+    <!-- right content -->
+    <div class="lg:col-span-9">
+      <div class="card p-6 sm:p-8 bg-white">
+        <ul class="text-slate-700 space-y-3 list-disc list-inside">
+          <li>Scaled Noon's Abu Dhabi product portfolio with 200+ new SKUs launched.</li>
+          <li>Improved vendor activation by 25% and reduced time to market by 15%.</li>
+          <li>Built financial models at RobtStone to guide multi-million dollar investments.</li>
+          <li>Boosted campaign ROI by 12% through market research at RCW Media Group.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Highlights --> 
-  <section id="highlights" class="mx-auto max-w-5xl px-4 py-12"> 
-    <h2 class="text-2xl font-bold mb-4 flex items-center">
-      <!-- Star icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 17.25l-6.16 3.73 1.64-7.03-5.48-4.75 7.19-.62L12 2l2.81 6.58 7.19.62-5.48 4.75 1.64 7.03z"/>
-      </svg>
-      Highlights
-    </h2> 
-    <div class="card rounded-2xl p-6"> 
-      <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside"> 
-        <li>Scaled Noon's Abu Dhabi product portfolio with 200+ new SKUs launched.</li> 
-        <li>Improved vendor activation by 25% and reduced time to market by 15%.</li> 
-        <li>Built financial models at RobtStone to help guide investments.</li> 
-        <li>Boosted campaign ROI by 12% through market research at RCW Media Group.</li> 
-      </ul> 
-    </div> 
-  </section> 
+<!-- Experience (block section, white) -->
+<section id="experience" class="bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
+    <aside class="lg:col-span-3">
+      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7l2-2h2l2 2"/></svg>
+        Experience
+      </div>
+    </aside>
+    <div class="lg:col-span-9 space-y-5">
+      <article class="card p-5 bg-white">
+        <h3 class="font-semibold">Noon — Business Development Executive</h3>
+        <p class="text-sm text-slate-500">Dubai • 2023 – 2024</p>
+        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
+          <li>Drove market expansion initiatives and coordinated product launch planning.</li>
+          <li>Worked with cross-functional teams to align execution with business goals.</li>
+          <li>Analyzed customer and sales data to guide strategic decisions.</li>
+        </ul>
+      </article>
 
-  <!-- Experience --> 
-  <section id="experience" class="mx-auto max-w-5xl px-4 py-12"> 
-    <h2 class="text-2xl font-bold mb-6 flex items-center">
-      <!-- Briefcase icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z"/>
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 7l2-2h2l2 2"/>
-      </svg>
-      Experience
-    </h2> 
-    <div class="space-y-4"> 
-      <article class="card rounded-2xl p-5"> 
-        <h3 class="font-semibold">Noon — Business Development Executive</h3> 
-        <p class="text-sm text-slate-500">Dubai • 2023 - 2024 </p> 
-        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside"> 
-          <li>Drove market expansion initiatives and coordinated product launch planning.</li> 
-          <li>Worked with cross-functional teams to align execution with business goals.</li> 
-          <li>Analyzed customer and sales data to guide strategic decisions.</li> 
-        </ul> 
-      </article> 
+      <article class="card p-5 bg-white">
+        <h3 class="font-semibold">RobtStone — Financial Analyst Intern</h3>
+        <p class="text-sm text-slate-500">Abu Dhabi • 2022 – 2023</p>
+        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
+          <li>Evaluated multi-million dollar oil &amp; gas investment opportunities.</li>
+          <li>Built financial models and delivered board-ready recommendations.</li>
+          <li>Supported leadership in assessing risk and return on new projects.</li>
+        </ul>
+      </article>
 
-      <article class="card rounded-2xl p-5"> 
-        <h3 class="font-semibold">RobtStone — Financial Analyst Intern</h3> 
-        <p class="text-sm text-slate-500">Abu Dhabi • 2022 - 2023 </p> 
-        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside"> 
-          <li>Assessed potential oil & gas investment projects by analyzing financial viability and operational risks.</li> 
-          <li>Built financial models and delivered board-ready recommendations.</li> 
-          <li>Supported leadership in assessing risk and return on new projects.</li> 
-        </ul> 
-      </article> 
+      <article class="card p-5 bg-white">
+        <h3 class="font-semibold">RCW Media Group — Market Research Intern</h3>
+        <p class="text-sm text-slate-500">Los Angeles • 2022</p>
+        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
+          <li>Developed campaign performance dashboards and client reports.</li>
+          <li>Translated analytics into clear, actionable recommendations.</li>
+          <li>Collaborated with creative and account teams to optimize results.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
 
-      <article class="card rounded-2xl p-5"> 
-        <h3 class="font-semibold">RCW Media Group — Market Research Intern</h3> 
-        <p class="text-sm text-slate-500">Los Angeles • 2022 </p> 
-        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside"> 
-          <li>Developed campaign performance dashboards and client reports.</li> 
-          <li>Translated analytics into clear, actionable recommendations.</li> 
-          <li>Collaborated with creative and account teams to optimize results.</li> 
-        </ul> 
-      </article> 
-    </div> 
-  </section> 
+<!-- Projects (block section, light) -->
+<section id="projects" class="bg-slate-50/80">
+  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
+    <aside class="lg:col-span-3">
+      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M7 13h2v5H7v-5m4-11h2v16h-2m4-8h2v8h-2"/></svg>
+        Projects
+      </div>
+    </aside>
+    <div class="lg:col-span-9">
+      <div class="card p-6 sm:p-8 bg-white">
+        <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Projects --> 
-  <section id="projects" class="mx-auto max-w-5xl px-4 py-12"> 
-    <h2 class="text-2xl font-bold mb-2 flex items-center"> 
-      <!-- Bar Chart Icon --> 
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 mr-2 text-slate-700"> 
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 13h2v5H7v-5zm4-6h2v11h-2V7zm4 4h2v7h-2v-7z" /> 
-      </svg> 
-      Projects 
-    </h2> 
-    <div id="projects-grid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div> 
-  </section> 
-
-  <!-- Skills --> 
-  <section id="skills" class="mx-auto max-w-5xl px-4 py-12"> 
-    <h2 class="text-2xl font-bold mb-6 flex items-center">
-      <!-- Cog icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.89 3.36.927 2.47 2.47a1.724 1.724 0 001.065 2.572c1.756.427 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.89 1.543-.927 3.36-2.47 2.47a1.724 1.724 0 00-2.572 1.065c-.427 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.89-3.36-.927-2.47-2.47a1.724 1.724 0 00-1.065-2.572c-1.756-.427-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.89-1.543.927-3.36 2.47-2.47.999-.576 2.145-.576 3.214 0z"/>
-      </svg>
-      Skills
-    </h2> 
-    <div class="grid sm:grid-cols-3 gap-6"> 
-      <div class="card rounded-2xl p-5"> 
-        <h3 class="font-semibold mb-2">Data & Analytics</h3> 
-        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside"> 
-          <li>Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)</li> 
-          <li>SQL</li> 
-          <li>Tableau, Microsoft Excel</li> 
-          <li>Statistical modeling & forecasting</li> 
-          <li>A/B testing & KPI tracking</li> 
-        </ul> 
-      </div> 
-
-      <div class="card rounded-2xl p-5"> 
-        <h3 class="font-semibold mb-2">Business & Product</h3> 
-        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside"> 
-          <li>Product management & requirements gathering</li> 
-          <li>User research & segmentation analysis</li> 
-          <li>Roadmap planning & go-to-market strategies</li> 
-          <li>Competitive analysis & market research</li> 
-        </ul> 
-      </div> 
-
-      <div class="card rounded-2xl p-5"> 
-        <h3 class="font-semibold mb-2">Operations & Tools</h3> 
-        <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside"> 
-          <li>Microsoft Office Suite</li> 
-          <li>Data visualization & storytelling</li> 
-          <li>Project management & stakeholder communication</li> 
-          <li>Data preparation & cleaning</li> 
-          <li>GitHub & version control</li> 
-        </ul> 
-      </div> 
-    </div> 
-  </section> 
+<!-- Skills (block section, white) -->
+<section id="skills" class="bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
+    <aside class="lg:col-span-3">
+      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0"/></svg>
+        Skills
+      </div>
+    </aside>
+    <div class="lg:col-span-9">
+      <div class="card p-6 sm:p-8 bg-white">
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div>
+            <h3 class="font-semibold mb-2">Data &amp; Analytics</h3>
+            <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+              <li>Python (Pandas, NumPy, scikit-learn, Matplotlib, Seaborn)</li>
+              <li>SQL</li>
+              <li>Tableau, Microsoft Excel</li>
+              <li>Statistical modeling &amp; forecasting</li>
+              <li>A/B testing &amp; KPI tracking</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Business &amp; Product</h3>
+            <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+              <li>Product management &amp; requirements</li>
+              <li>User research &amp; segmentation</li>
+              <li>Roadmap &amp; go-to-market</li>
+              <li>Competitive &amp; market analysis</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Operations &amp; Tools</h3>
+            <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+              <li>Microsoft Office Suite</li>
+              <li>Data visualization &amp; storytelling</li>
+              <li>Project management &amp; comms</li>
+              <li>Data preparation &amp; cleaning</li>
+              <li>GitHub &amp; version control</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Contact --> 
   <section id="contact" class="mx-auto max-w-5xl px-4 py-12"> 
