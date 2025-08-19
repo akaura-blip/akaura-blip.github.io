@@ -57,56 +57,73 @@
     </nav> 
   </header> 
 
-  <!-- Hero --> 
-  <section id="home" class="mx-auto max-w-5xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-16"> 
-    <div class="grid sm:grid-cols-5 gap-8 items-center"> 
-      <div class="sm:col-span-3"> 
-        <p class="text-xs uppercase tracking-widest text-slate-500 mb-3">MSBA @ USC • Los Angeles</p> 
-        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight"> Hi! 👋 I’m Aman </h1> 
-        <p class="mt-4 text-slate-600 leading-relaxed"> 
-          I’m pursuing my Master’s in Business Analytics at USC a Business Analytics graduate student who loves digging into data and turning it into strategies that actually make a difference. Here’s a snapshot of my journey so far: 
-        </p> 
-        <div class="mt-6 flex flex-wrap gap-3"> 
-          <!-- See projects -->
-          <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="#projects">
-            <i data-lucide="folder" class="w-4 h-4"></i>
-            See projects
-          </a>
+  <!-- Hero -->
+<section id="home" class="mx-auto max-w-5xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-16">
+  <div class="grid sm:grid-cols-5 gap-8 items-center">
+    <!-- Left: intro + CTAs -->
+    <div class="sm:col-span-3">
+      <p class="text-xs uppercase tracking-widest text-slate-500 mb-3">MSBA @ USC • Los Angeles</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Hi! 👋 I’m Aman</h1>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        I’m pursuing my Master’s in Business Analytics at USC a Business Analytics graduate student who loves
+        digging into data and turning it into strategies that actually make a difference. Here’s a snapshot of my journey so far:
+      </p>
 
-          <!-- Resume -->
-          <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="resume.pdf" target="_blank" rel="noreferrer">
-            <i data-lucide="file-text" class="w-4 h-4"></i>
-            Download Resume
-          </a>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <!-- See projects -->
+        <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="#projects">
+          <i data-lucide="folder" class="w-4 h-4"></i>
+          See projects
+        </a>
 
-          <!-- LinkedIn -->
-          <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
-            <i data-lucide="linkedin" class="w-4 h-4"></i>
-            LinkedIn
-          </a>
+        <!-- Resume -->
+        <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800"
+           href="resume.pdf" target="_blank" rel="noreferrer">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          Download Resume
+        </a>
 
-          <!-- Email -->
-          <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="mailto:akaura@marshall.usc.edu">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-            Email
-          </a>
-        </div> 
-      </div> 
+        <!-- LinkedIn -->
+        <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800"
+           href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
+          <i data-lucide="linkedin" class="w-4 h-4"></i>
+          LinkedIn
+        </a>
 
-      <div class="sm:col-span-2"> 
-        <div class="card rounded-2xl p-6 bg-white"> 
-          <p class="text-sm text-slate-500 mb-2">Current status</p> 
-          <p class="font-semibold">MSBA @ USC Marshall</p> 
-          <hr class="my-4"> 
-          <ul class="text-sm text-slate-600 space-y-2"> 
-            <li>• SQL, Python, Tableau</li> 
-            <li>• Experiments & A/B testing</li> 
-            <li>• Forecasting & dashboards</li> 
-          </ul> 
-        </div> 
-      </div> 
-    </div> 
-  </section>
+        <!-- Email -->
+        <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800"
+           href="mailto:akaura@marshall.usc.edu">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: headshot + status card -->
+    <div class="sm:col-span-2 flex flex-col items-center">
+      <!-- Circular headshot (place aman-kaura.jpg in repo root) -->
+      <img
+        src="aman-kaura.jpg"
+        alt="Aman Kaura headshot"
+        class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover ring-1 ring-white/70 shadow-lg mb-4"
+        loading="eager"
+        decoding="async"
+      />
+
+      <div class="card rounded-2xl p-6 bg-white w-full">
+        <p class="text-sm text-slate-500 mb-2">Current status</p>
+        <p class="font-semibold">MSBA @ USC Marshall</p>
+        <hr class="my-4">
+        <ul class="text-sm text-slate-600 space-y-2">
+          <li>• SQL, Python, Tableau</li>
+          <li>• Experiments & A/B testing</li>
+          <li>• Forecasting & dashboards</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Highlights --> 
   <section id="highlights" class="mx-auto max-w-5xl px-4 py-12"> 
