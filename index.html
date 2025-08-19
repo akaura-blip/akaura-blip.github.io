@@ -10,17 +10,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
 
-  <!-- Tailwind via CDN --> 
-  <script src="https://cdn.tailwindcss.com"></script> 
-  <script> 
-    tailwind.config = { 
-      theme: { 
-        extend: { 
-          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] }, 
-        } 
-      } 
-    } 
-  </script> 
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } }
+      }
+    }
+  </script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Glass background + frosted cards (after Tailwind so it wins) -->
   <style>
@@ -66,31 +67,29 @@
           I’m pursuing my Master’s in Business Analytics at USC a Business Analytics graduate student who loves digging into data and turning it into strategies that actually make a difference. Here’s a snapshot of my journey so far: 
         </p> 
         <div class="mt-6 flex flex-wrap gap-3"> 
-          <a class="px-4 py-2 rounded-xl bg-slate-900 text-white text-sm" href="#projects">See projects</a> 
+          <!-- See projects -->
+          <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="#projects">
+            <i data-lucide="folder" class="w-4 h-4"></i>
+            See projects
+          </a>
 
           <!-- Resume -->
-          <a class="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 text-sm" href="resume.pdf" target="_blank" rel="noreferrer"> 
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> 
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 16v-8m0 8l-3-3m3 3l3-3m-6 7h6a2 2 0 002-2V5a2 2 0 00-2-2H9a2 2 0 00-2 2v14a2 2 0 002 2z"/> 
-            </svg> 
-            Download Resume 
-          </a> 
+          <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="resume.pdf" target="_blank" rel="noreferrer">
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            Download Resume
+          </a>
 
           <!-- LinkedIn -->
-          <a class="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 text-sm" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-slate-600" viewBox="0 0 24 24">
-              <path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5C1 2.4 1.9 1.5 3 1.5s1.98.9 1.98 2zM1 22h4V7H1v15zM8 7h3.7v2.1h.1c.5-1 1.7-2.1 3.5-2.1C19 7 21 9 21 12.6V22h-4v-8c0-1.9-.7-3.1-2.4-3.1-1.3 0-2.1.9-2.5 1.8-.1.3-.1.7-.1 1.1V19h-3s.1-9 0-10h3v1.4c.4-.7 1.2-1.7 3-1.7 2.2 0 3.9 1.4 3.9 4.5V19z"/>
-            </svg>
+          <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
             LinkedIn
           </a>
 
           <!-- Email -->
-          <a class="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 text-sm" href="mailto:akaura@marshall.usc.edu"> 
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> 
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/> 
-            </svg> 
-            Email 
-          </a> 
+          <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="mailto:akaura@marshall.usc.edu">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            Email
+          </a>
         </div> 
       </div> 
 
@@ -107,7 +106,7 @@
         </div> 
       </div> 
     </div> 
-  </section> 
+  </section>
 
   <!-- Highlights --> 
   <section id="highlights" class="mx-auto max-w-5xl px-4 py-12"> 
@@ -118,7 +117,7 @@
       </svg>
       Highlights
     </h2> 
-    <div class="card rounded-2xl p-6 bg-white"> 
+    <div class="card rounded-2xl p-6"> 
       <ul class="text-sm text-slate-700 space-y-2 list-disc list-inside"> 
         <li>Scaled Noon's Abu Dhabi product portfolio with 200+ new SKUs launched.</li> 
         <li>Improved vendor activation by 25% and reduced time to market by 15%.</li> 
@@ -139,7 +138,7 @@
       Experience
     </h2> 
     <div class="space-y-4"> 
-      <article class="card rounded-2xl p-5 bg-white"> 
+      <article class="card rounded-2xl p-5"> 
         <h3 class="font-semibold">Noon — Business Development Executive</h3> 
         <p class="text-sm text-slate-500">Dubai • 2023 - 2024 </p> 
         <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside"> 
@@ -149,7 +148,7 @@
         </ul> 
       </article> 
 
-      <article class="card rounded-2xl p-5 bg-white"> 
+      <article class="card rounded-2xl p-5"> 
         <h3 class="font-semibold">RobtStone — Financial Analyst Intern</h3> 
         <p class="text-sm text-slate-500">Abu Dhabi • 2022 - 2023 </p> 
         <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside"> 
@@ -159,7 +158,7 @@
         </ul> 
       </article> 
 
-      <article class="card rounded-2xl p-5 bg-white"> 
+      <article class="card rounded-2xl p-5"> 
         <h3 class="font-semibold">RCW Media Group — Market Research Intern</h3> 
         <p class="text-sm text-slate-500">Los Angeles • 2022 </p> 
         <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside"> 
@@ -193,7 +192,7 @@
       Skills
     </h2> 
     <div class="grid sm:grid-cols-3 gap-6"> 
-      <div class="card rounded-2xl p-5 bg-white"> 
+      <div class="card rounded-2xl p-5"> 
         <h3 class="font-semibold mb-2">Data & Analytics</h3> 
         <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside"> 
           <li>Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)</li> 
@@ -204,7 +203,7 @@
         </ul> 
       </div> 
 
-      <div class="card rounded-2xl p-5 bg-white"> 
+      <div class="card rounded-2xl p-5"> 
         <h3 class="font-semibold mb-2">Business & Product</h3> 
         <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside"> 
           <li>Product management & requirements gathering</li> 
@@ -214,7 +213,7 @@
         </ul> 
       </div> 
 
-      <div class="card rounded-2xl p-5 bg-white"> 
+      <div class="card rounded-2xl p-5"> 
         <h3 class="font-semibold mb-2">Operations & Tools</h3> 
         <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside"> 
           <li>Microsoft Office Suite</li> 
@@ -229,7 +228,7 @@
 
   <!-- Contact --> 
   <section id="contact" class="mx-auto max-w-5xl px-4 py-12"> 
-    <div class="card rounded-2xl p-8 bg-white"> 
+    <div class="card rounded-2xl p-8"> 
       <h2 class="text-2xl font-bold mb-4 flex items-center">
         <!-- Mail icon -->
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -240,26 +239,20 @@
       <p class="text-slate-600 mb-4">Happy to discuss opportunities where I can add value—contact me anytime through email or LinkedIn!</p> 
       <div class="flex flex-wrap gap-3"> 
         <!-- Email -->
-        <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm" href="mailto:hello@yourdomain.com"> 
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> 
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/> 
-          </svg> 
-            Email me 
+        <a class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="mailto:hello@yourdomain.com"> 
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Email me 
         </a> 
 
         <!-- LinkedIn -->
-        <a class="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 text-sm" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer"> 
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-slate-600" viewBox="0 0 24 24"> 
-            <path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5C1 2.4 1.9 1.5 3 1.5s1.98.9 1.98 2zM1 22h4V7H1v15zM8 7h3.7v2.1h.1c.5-1 1.7-2.1 3.5-2.1C19 7 21 9 21 12.6V22h-4v-8c0-1.9-.7-3.1-2.4-3.1-1.3 0-2.1.9-2.5 1.8-.1.3-.1.7-.1 1.1V19h-3s.1-9 0-10h3v1.4c.4-.7 1.2-1.7 3-1.7 2.2 0 3.9 1.4 3.9 4.5V19z"/> 
-          </svg> 
+        <a class="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-100" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer"> 
+          <i data-lucide="linkedin" class="w-4 h-4"></i>
           LinkedIn 
         </a> 
 
         <!-- GitHub -->
-        <a class="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 text-sm" href="https://github.com" target="_blank" rel="noreferrer"> 
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-slate-600"> 
-            <path d="M12 0a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.1-1.2-1.5-1.2-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.3 1.1 2.8.8.1-.6.3-1.1.6-1.4-2.7-.3-5.6-1.3-5.6-6a4.7 4.7 0 011.3-3.3c-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.3a11.5 11.5 0 016 0c2.3-1.6 3.3-1.3 3.3-1.3.7 1.7.2 3 .1 3.3a4.7 4.7 0 011.3 3.3c0 4.7-2.9 5.7-5.6 6 .3.3.6.9.6 1.9v2.9c0 .3.2.7.8.6A12 12 0 0012 0z"/> 
-          </svg> 
+        <a class="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-100" href="https://github.com" target="_blank" rel="noreferrer"> 
+          <i data-lucide="github" class="w-4 h-4"></i>
           GitHub 
         </a> 
       </div> 
@@ -300,6 +293,9 @@
       } 
     } 
     loadProjects(); 
+
+    // Initialize Lucide icons
+    lucide.createIcons();
   </script> 
 </body> 
 </html>
