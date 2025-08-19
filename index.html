@@ -10,6 +10,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
 
+  <!-- Custom CSS for interactive project cards -->
+  <style>
+    #projects-grid .card:hover {
+      box-shadow:
+        0 15px 40px rgba(0,0,0,0.12),
+        0 0 0 2px rgba(99,102,241,0.15) inset; /* gradient-style hover border */
+      transform: translateY(-6px);
+      transition: all 0.3s ease;
+    }
+  </style>
+
   <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
