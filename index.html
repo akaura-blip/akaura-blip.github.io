@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aman Kaura — Portfolio</title>
-  <meta name="description" content="Portfolio of Aman Kaura — MSBA candidate and data/strategy professional."/>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <title>Aman Kaura — Portfolio</title> 
+  <meta name="description" content="Portfolio of Aman Kaura — MSBA candidate and data/strategy professional."/> 
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
 
   <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,14 +23,12 @@
   <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Page styles -->
+  <!-- Styles (glass + gradient ring effects) -->
   <style>
-    /* Background */
     body {
       background: linear-gradient(180deg, #eef2ff 0%, #ffffff 55%, #f8fafc 100%);
     }
 
-    /* Frosted cards */
     .card {
       background: rgba(255,255,255,0.7) !important;
       backdrop-filter: blur(8px);
@@ -38,304 +36,342 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       border: 1px solid rgba(255,255,255,0.6);
       border-radius: 1rem;
-      transition: transform .25s ease, box-shadow .25s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-    }
-
-    /* Clean hover (no ring) for buttons & project cards */
-    .fancy-button {
-      transition: transform .25s ease, box-shadow .25s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
-      box-shadow: 0 4px 12px rgba(2, 6, 23, 0.10);
-    }
-    .fancy-button:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(2, 6, 23, 0.18);
-    }
-    .hover-card {
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .hover-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 46px rgba(2, 6, 23, 0.18);
-    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
 
     /* Sticky left labels for block sections */
     .section-label { position: sticky; top: 6rem; }
     @media (max-width: 1024px) { .section-label { position: static; top: auto; } }
+
+    /* ============ Animated gradient ring (projects + buttons) ============ */
+    @keyframes spin {
+      to { transform: rotate(1turn); }
+    }
+
+    /* Generic ring wrapper */
+    .ringfx { position: relative; border-radius: 1rem; }
+    .ringfx::before {
+      content: "";
+      position: absolute;
+      inset: 0;                 /* ring sits on the edge */
+      border-radius: inherit;
+      padding: 2px;             /* ring thickness */
+      background: conic-gradient(#6366f1, #22d3ee, #a78bfa, #6366f1);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;   /* show as border only */
+      opacity: 0;
+      transition: opacity .25s ease;
+      animation: spin 6s linear infinite;
+    }
+    .ringfx:hover::before { opacity: 1; }
+
+    /* Buttons using same ring (slightly tighter radius) */
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem 1rem;
+      border-radius: .75rem;
+      background: #0f172a; /* slate-900 */
+      color: #fff;
+      font-size: .875rem;
+      font-weight: 500;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.15); }
+
+    .btn.ring::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      padding: 1px; /* ring thickness for buttons */
+      background: conic-gradient(#6366f1, #22d3ee, #a78bfa, #6366f1);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity: 0;
+      transition: opacity .25s ease;
+      animation: spin 6s linear infinite;
+    }
+    .btn.ring:hover::before { opacity: 1; }
   </style>
-</head>
+</head> 
 
-<body class="font-sans text-slate-800">
+<body class="font-sans text-slate-800"> 
 
-  <!-- Nav -->
-  <header class="flex items-center justify-between py-6 px-4 sm:px-6 lg:px-8">
-    <div class="text-lg font-semibold">Aman Kaura</div>
-    <nav class="hidden sm:flex gap-6 text-sm">
-      <a href="#highlights" class="hover:text-slate-900 text-slate-600">Highlights</a>
-      <a href="#experience" class="hover:text-slate-900 text-slate-600">Experience</a>
-      <a href="#projects" class="hover:text-slate-900 text-slate-600">Projects</a>
-      <a href="#skills" class="hover:text-slate-900 text-slate-600">Skills</a>
-      <a href="#contact" class="hover:text-slate-900 text-slate-600">Contact</a>
-    </nav>
-  </header>
+  <!-- Nav --> 
+  <header class="flex items-center justify-between py-6 px-4 sm:px-6 lg:px-8"> 
+    <div class="text-lg font-semibold">Aman Kaura</div> 
+    <nav class="hidden sm:flex gap-6 text-sm"> 
+      <a href="#highlights" class="hover:text-slate-900 text-slate-600">Highlights</a> 
+      <a href="#experience" class="hover:text-slate-900 text-slate-600">Experience</a> 
+      <a href="#projects" class="hover:text-slate-900 text-slate-600">Projects</a> 
+      <a href="#skills" class="hover:text-slate-900 text-slate-600">Skills</a> 
+      <a href="#contact" class="hover:text-slate-900 text-slate-600">Contact</a> 
+    </nav> 
+  </header> 
 
   <!-- Hero -->
-  <section id="home" class="mx-auto max-w-5xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-16">
-    <div class="grid sm:grid-cols-5 gap-8 items-center">
-      <!-- Left -->
-      <div class="sm:col-span-3">
-        <p class="text-xs uppercase tracking-widest text-slate-500 mb-3">MSBA @ USC • Los Angeles</p>
-        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Hi! 👋 I’m Aman</h1>
-        <p class="mt-4 text-slate-600 leading-relaxed">
-          I’m pursuing my Master’s in Business Analytics at USC, where I focus on turning data into strategies that drive real impact. Here’s a snapshot of my journey so far:
-        </p>
+<section id="home" class="mx-auto max-w-5xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-16">
+  <div class="grid sm:grid-cols-5 gap-8 items-center">
+    <!-- Left: intro + CTAs -->
+    <div class="sm:col-span-3">
+      <p class="text-xs uppercase tracking-widest text-slate-500 mb-3">MSBA @ USC • Los Angeles</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Hi! 👋 I’m Aman</h1>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        I’m pursuing my Master’s in Business Analytics at USC, where I focus on turning data into strategies that drive real impact. Here’s a snapshot of my journey so far:
+      </p>
 
-        <div class="mt-6 flex flex-wrap gap-3">
-          <!-- See projects -->
-          <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800"
-             href="#projects">
-            <i data-lucide="folder" class="w-4 h-4"></i>
-            See projects
-          </a>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <!-- See projects -->
+        <a class="btn ring" href="#projects">
+          <i data-lucide="folder" class="w-4 h-4"></i>
+          See projects
+        </a>
 
-          <!-- Resume -->
-          <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800"
-             href="resume.pdf" target="_blank" rel="noreferrer">
-            <i data-lucide="file-text" class="w-4 h-4"></i>
-            Download Resume
-          </a>
+        <!-- Resume -->
+        <a class="btn ring"
+           href="resume.pdf" target="_blank" rel="noreferrer">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          Download Resume
+        </a>
 
-          <!-- LinkedIn -->
-          <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800"
-             href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
-            <i data-lucide="linkedin" class="w-4 h-4"></i>
-            LinkedIn
-          </a>
+        <!-- LinkedIn -->
+        <a class="btn ring"
+           href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
+          <i data-lucide="linkedin" class="w-4 h-4"></i>
+          LinkedIn
+        </a>
 
-          <!-- Email -->
-          <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800"
-             href="mailto:akaura@marshall.usc.edu">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-            Email
-          </a>
-        </div>
-      </div>
-
-      <!-- Right -->
-      <div class="sm:col-span-2 flex flex-col items-center">
-        <img src="aman-kaura.jpg" alt="Aman Kaura headshot"
-             class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover ring-1 ring-white/70 shadow-lg mb-4"
-             loading="eager" decoding="async" />
-        <div class="card rounded-2xl p-6 bg-white w-full">
-          <p class="text-sm text-slate-500 mb-2">Current status</p>
-          <p class="font-semibold">MSBA @ USC Marshall</p>
-          <hr class="my-4">
-          <ul class="text-sm text-slate-600 space-y-2">
-            <li>• SQL, Python, Tableau</li>
-            <li>• Experiments & A/B testing</li>
-            <li>• Forecasting & dashboards</li>
-          </ul>
-        </div>
+        <!-- Email -->
+        <a class="btn ring"
+           href="mailto:akaura@marshall.usc.edu">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Email
+        </a>
       </div>
     </div>
-  </section>
 
-  <!-- Highlights -->
-  <section id="highlights" class="bg-slate-50/80">
-    <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
-      <aside class="lg:col-span-3">
-        <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.25l-6.16 3.73 1.64-7.03-5.48-4.75 7.19-.62L12 2l2.81 6.58 7.19.62-5.48 4.75 1.64 7.03z"/></svg>
-          Highlights
-        </div>
-      </aside>
-      <div class="lg:col-span-9">
-        <div class="card p-6 sm:p-8 bg-white">
-          <ul class="text-slate-700 space-y-3 list-disc list-inside">
-            <li>Scaled Noon's Abu Dhabi product portfolio with 200+ new SKUs launched.</li>
-            <li>Improved vendor activation by 25% and reduced time to market by 15%.</li>
-            <li>Built financial models at RobtStone to help guide investments.</li>
-            <li>Boosted campaign ROI by 12% through market research at RCW Media Group.</li>
-          </ul>
-        </div>
+    <!-- Right: headshot + status card -->
+    <div class="sm:col-span-2 flex flex-col items-center">
+      <img
+        src="aman-kaura.jpg"
+        alt="Aman Kaura headshot"
+        class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover ring-1 ring-white/70 shadow-lg mb-4"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="card rounded-2xl p-6 bg-white w-full">
+        <p class="text-sm text-slate-500 mb-2">Current status</p>
+        <p class="font-semibold">MSBA @ USC Marshall</p>
+        <hr class="my-4">
+        <ul class="text-sm text-slate-600 space-y-2">
+          <li>• SQL, Python, Tableau</li>
+          <li>• Experiments & A/B testing</li>
+          <li>• Forecasting & dashboards</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Experience -->
-  <section id="experience" class="bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
-      <aside class="lg:col-span-3">
-        <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7l2-2h2l2 2"/></svg>
-          Experience
-        </div>
-      </aside>
-      <div class="lg:col-span-9 space-y-5">
-        <article class="card p-5 bg-white">
-          <h3 class="font-semibold">Noon — Business Development Executive</h3>
-          <p class="text-sm text-slate-500">Dubai • 2023</p>
-          <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
-            <li>Drove market expansion initiatives and coordinated product launch planning.</li>
-            <li>Worked with cross-functional teams to align execution with business goals.</li>
-            <li>Analyzed customer and sales data to guide strategic decisions.</li>
-          </ul>
-        </article>
-
-        <article class="card p-5 bg-white">
-          <h3 class="font-semibold">RobtStone — Financial Analyst Intern</h3>
-          <p class="text-sm text-slate-500">Abu Dhabi • 2022</p>
-          <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
-            <li>Assessed potential oil & gas investment projects by analyzing financial viability and operational risks.</li>
-            <li>Built financial models and delivered board-ready recommendations.</li>
-            <li>Supported leadership in assessing risk and return on new projects.</li>
-          </ul>
-        </article>
-
-        <article class="card p-5 bg-white">
-          <h3 class="font-semibold">RCW Media Group — Market Research Intern</h3>
-          <p class="text-sm text-slate-500">Los Angeles • 2022</p>
-          <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
-            <li>Developed campaign performance dashboards and client reports.</li>
-            <li>Translated analytics into clear, actionable recommendations.</li>
-            <li>Collaborated with creative and account teams to optimize results.</li>
-          </ul>
-        </article>
+<!-- Highlights (block section) -->
+<section id="highlights" class="bg-slate-50/80">
+  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
+    <aside class="lg:col-span-3">
+      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.25l-6.16 3.73 1.64-7.03-5.48-4.75 7.19-.62L12 2l2.81 6.58 7.19.62-5.48 4.75 1.64 7.03z"/></svg>
+        Highlights
+      </div>
+    </aside>
+    <div class="lg:col-span-9">
+      <div class="card p-6 sm:p-8 bg-white">
+        <ul class="text-slate-700 space-y-3 list-disc list-inside">
+          <li>Scaled Noon's Abu Dhabi product portfolio with 200+ new SKUs launched.</li>
+          <li>Improved vendor activation by 25% and reduced time to market by 15%.</li>
+          <li>Built financial models at RobtStone to help guide investments.</li>
+          <li>Boosted campaign ROI by 12% through market research at RCW Media Group.</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Projects -->
-  <section id="projects" class="bg-slate-50/80">
-    <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
-      <aside class="lg:col-span-3">
-        <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M7 13h2v5H7v-5m4-11h2v16h-2m4-8h2v8h-2"/></svg>
-          Projects
-        </div>
-      </aside>
-      <div class="lg:col-span-9">
-        <div class="card p-6 sm:p-8 bg-white">
-          <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"></div>
-        </div>
+<!-- Experience -->
+<section id="experience" class="bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
+    <aside class="lg:col-span-3">
+      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7l2-2h2l2 2"/></svg>
+        Experience
+      </div>
+    </aside>
+    <div class="lg:col-span-9 space-y-5">
+      <article class="card p-5 bg-white">
+        <h3 class="font-semibold">Noon — Business Development Executive</h3>
+        <p class="text-sm text-slate-500">Dubai • 2023</p>
+        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
+          <li>Drove market expansion initiatives and coordinated product launch planning.</li>
+          <li>Worked with cross-functional teams to align execution with business goals.</li>
+          <li>Analyzed customer and sales data to guide strategic decisions.</li>
+        </ul>
+      </article>
+
+      <article class="card p-5 bg-white">
+        <h3 class="font-semibold">RobtStone — Financial Analyst Intern</h3>
+        <p class="text-sm text-slate-500">Abu Dhabi • 2022</p>
+        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
+          <li>Assessed potential oil & gas investment projects by analyzing financial viability and operational risks.</li>
+          <li>Built financial models and delivered board-ready recommendations.</li>
+          <li>Supported leadership in assessing risk and return on new projects.</li>
+        </ul>
+      </article>
+
+      <article class="card p-5 bg-white">
+        <h3 class="font-semibold">RCW Media Group — Market Research Intern</h3>
+        <p class="text-sm text-slate-500">Los Angeles • 2022</p>
+        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
+          <li>Developed campaign performance dashboards and client reports.</li>
+          <li>Translated analytics into clear, actionable recommendations.</li>
+          <li>Collaborated with creative and account teams to optimize results.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="bg-slate-50/80">
+  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
+    <aside class="lg:col-span-3">
+      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M7 13h2v5H7v-5m4-11h2v16h-2m4-8h2v8h-2"/></svg>
+        Projects
+      </div>
+    </aside>
+    <div class="lg:col-span-9">
+      <div class="card p-6 sm:p-8 bg-white">
+        <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Skills -->
-  <section id="skills" class="bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
-      <aside class="lg:col-span-3">
-        <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0"/></svg>
-          Skills
-        </div>
-      </aside>
-      <div class="lg:col-span-9">
-        <div class="card p-6 sm:p-8 bg-white">
-          <div class="grid sm:grid-cols-3 gap-6">
-            <div>
-              <h3 class="font-semibold mb-2">Data &amp; Analytics</h3>
-              <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
-                <li>Python (Pandas, NumPy, scikit-learn, Matplotlib, Seaborn)</li>
-                <li>SQL</li>
-                <li>Tableau, Microsoft Excel</li>
-                <li>Statistical modeling &amp; forecasting</li>
-                <li>A/B testing &amp; KPI tracking</li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-2">Business &amp; Product</h3>
-              <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
-                <li>Product management &amp; requirements</li>
-                <li>User research &amp; segmentation</li>
-                <li>Roadmap &amp; go-to-market</li>
-                <li>Competitive &amp; market analysis</li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-2">Operations &amp; Tools</h3>
-              <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
-                <li>Microsoft Office Suite</li>
-                <li>Data visualization &amp; storytelling</li>
-                <li>Project management &amp; comms</li>
-                <li>Data preparation &amp; cleaning</li>
-                <li>GitHub &amp; version control</li>
-              </ul>
-            </div>
+<!-- Skills -->
+<section id="skills" class="bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
+    <aside class="lg:col-span-3">
+      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0"/></svg>
+        Skills
+      </div>
+    </aside>
+    <div class="lg:col-span-9">
+      <div class="card p-6 sm:p-8 bg-white">
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div>
+            <h3 class="font-semibold mb-2">Data &amp; Analytics</h3>
+            <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+              <li>Python (Pandas, NumPy, scikit-learn, Matplotlib, Seaborn)</li>
+              <li>SQL</li>
+              <li>Tableau, Microsoft Excel</li>
+              <li>Statistical modeling &amp; forecasting</li>
+              <li>A/B testing &amp; KPI tracking</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Business &amp; Product</h3>
+            <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+              <li>Product management &amp; requirements</li>
+              <li>User research &amp; segmentation</li>
+              <li>Roadmap &amp; go-to-market</li>
+              <li>Competitive &amp; market analysis</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Operations &amp; Tools</h3>
+            <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside">
+              <li>Microsoft Office Suite</li>
+              <li>Data visualization &amp; storytelling</li>
+              <li>Project management &amp; comms</li>
+              <li>Data preparation &amp; cleaning</li>
+              <li>GitHub &amp; version control</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact" class="mx-auto max-w-5xl px-4 py-12">
-    <div class="card rounded-2xl p-8">
+  <!-- Contact --> 
+  <section id="contact" class="mx-auto max-w-5xl px-4 py-12"> 
+    <div class="card rounded-2xl p-8"> 
       <h2 class="text-2xl font-bold mb-4 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
         </svg>
         Say hello
-      </h2>
-      <p class="text-slate-600 mb-4">Happy to discuss opportunities where I can add value—contact me anytime through email or LinkedIn!</p>
-      <div class="flex flex-wrap gap-3">
-        <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="mailto:akaura@marshall.usc.edu">
+      </h2> 
+      <p class="text-slate-600 mb-4">Happy to discuss opportunities where I can add value—contact me anytime through email or LinkedIn!</p> 
+      <div class="flex flex-wrap gap-3"> 
+        <a class="btn ring" href="mailto:hello@yourdomain.com"> 
           <i data-lucide="mail" class="w-4 h-4"></i>
-          Email me
-        </a>
-        <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
+          Email me 
+        </a> 
+        <a class="btn ring" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer"> 
           <i data-lucide="linkedin" class="w-4 h-4"></i>
-          LinkedIn
-        </a>
-        <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="https://github.com" target="_blank" rel="noreferrer">
+          LinkedIn 
+        </a> 
+        <a class="btn ring" href="https://github.com" target="_blank" rel="noreferrer"> 
           <i data-lucide="github" class="w-4 h-4"></i>
-          GitHub
-        </a>
-      </div>
-    </div>
-  </section>
+          GitHub 
+        </a> 
+      </div> 
+    </div> 
+  </section> 
 
-  <footer class="py-10 text-center text-xs text-slate-500">
-    © <span id="year"></span> Aman Kaura
-  </footer>
+  <footer class="py-10 text-center text-xs text-slate-500"> 
+    © <span id="year"></span> Aman Kaura 
+  </footer> 
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <script> 
+    document.getElementById('year').textContent = new Date().getFullYear(); 
 
     // Projects loader — reads projects.json and renders cards
-    async function loadProjects() {
-      try {
+    async function loadProjects() { 
+      try { 
         const res = await fetch('projects.json?v=' + Date.now()); // cache-buster
-        if (!res.ok) return;
-        const data = await res.json();
-        const grid = document.getElementById('projects-grid');
-        grid.innerHTML = '';
+        if (!res.ok) return; 
+        const data = await res.json(); 
+        const grid = document.getElementById('projects-grid'); 
+        grid.innerHTML = ''; 
 
-        data.forEach(p => {
-          const a = document.createElement('a');
-          a.href = p.link || '#';
-          a.target = p.link ? '_blank' : '';
-          a.rel = p.link ? 'noreferrer' : '';
-          a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform';
+        data.forEach(p => { 
+          const a = document.createElement('a'); 
+          a.href = p.link || '#'; 
+          a.target = p.link ? '_blank' : ''; 
+          a.rel = p.link ? 'noreferrer' : ''; 
+          // ringfx adds the animated gradient ring around the card
+          a.className = 'ringfx card block rounded-2xl p-5 transition will-change-transform'; 
           a.innerHTML = `
             <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
             <div class="font-semibold">${p.title}</div>
             <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
-          `;
-          grid.appendChild(a);
-        });
-      } catch (e) {
-        console.error('Could not load projects.json', e);
-      }
-    }
-    loadProjects();
+          `; 
+          grid.appendChild(a); 
+        }); 
+      } catch (e) { 
+        console.error('Could not load projects.json', e); 
+      } 
+    } 
+    loadProjects(); 
 
     // Initialize Lucide icons
     lucide.createIcons();
-  </script>
-</body>
+  </script> 
+</body> 
 </html>
