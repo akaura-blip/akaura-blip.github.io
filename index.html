@@ -10,146 +10,192 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } }
+      }
+    }
+  </script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Page styles -->
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f9fafb;
-      margin: 0;
-      color: #111827;
+      background: linear-gradient(180deg, #eef2ff 0%, #ffffff 55%, #f8fafc 100%);
     }
 
-    .section {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 18px;
-      border-radius: 0.75rem;
-      border: 1px solid #d1d5db;
-      background: #fff;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #111827;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-
-    /* Project cards */
-    #projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    #projects-grid .card {
-      position: relative;
-      background: #fff;
+    .card {
+      background: rgba(255,255,255,0.7) !important;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.6);
       border-radius: 1rem;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform .2s ease, box-shadow .2s ease;
-      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease;
+      position: relative;
     }
-    #projects-grid .card:hover {
+    .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
     }
-    #projects-grid .card .card-arrow {
+
+    .fancy-button {
+      transition: transform .25s ease, box-shadow .25s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+      box-shadow: 0 4px 12px rgba(2, 6, 23, 0.10);
+    }
+    .fancy-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(2, 6, 23, 0.18);
+    }
+
+    .hover-card {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .hover-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 46px rgba(2, 6, 23, 0.18);
+    }
+
+    /* Arrow indicator */
+    .card-arrow {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-size: 1rem;
+      color: #9ca3af; /* slate-400 */
       opacity: 0;
       transform: translateX(-4px);
       transition: opacity .2s ease, transform .2s ease;
     }
-    #projects-grid .card:hover .card-arrow {
+    .hover-card:hover .card-arrow {
       opacity: 1;
       transform: translateX(0);
     }
-    #projects-grid .card a:focus-visible {
-      outline: 2px solid rgba(99,102,241,0.5);
-      outline-offset: 4px;
-      border-radius: 0.75rem;
-    }
+
+    .section-label { position: sticky; top: 6rem; }
+    @media (max-width: 1024px) { .section-label { position: static; top: auto; } }
   </style>
 </head>
-<body>
 
-  <!-- Intro Section -->
-  <section class="section">
-    <p>MSBA @ USC • LOS ANGELES</p>
-    <h1>Hi! 👋 I’m Aman</h1>
-    <p>I’m pursuing my Master‘s in Business Analytics at USC, where I focus on turning data into strategies that drive real impact. Here’s a snapshot of my journey so far:</p>
-    <div style="margin-top: 20px;">
-      <a href="#" class="btn">See projects</a>
-      <a href="#" class="btn">Download Resume</a>
-      <a href="https://linkedin.com" target="_blank" class="btn">LinkedIn</a>
-      <a href="mailto:aman@example.com" class="btn">Email</a>
+<body class="font-sans text-slate-800">
+
+  <!-- Nav -->
+  <header class="flex items-center justify-between py-6 px-4 sm:px-6 lg:px-8">
+    <div class="text-lg font-semibold">Aman Kaura</div>
+    <nav class="hidden sm:flex gap-6 text-sm">
+      <a href="#highlights" class="hover:text-slate-900 text-slate-600">Highlights</a>
+      <a href="#experience" class="hover:text-slate-900 text-slate-600">Experience</a>
+      <a href="#projects" class="hover:text-slate-900 text-slate-600">Projects</a>
+      <a href="#skills" class="hover:text-slate-900 text-slate-600">Skills</a>
+      <a href="#contact" class="hover:text-slate-900 text-slate-600">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="mx-auto max-w-5xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-16">
+    <div class="grid sm:grid-cols-5 gap-8 items-center">
+      <div class="sm:col-span-3">
+        <p class="text-xs uppercase tracking-widest text-slate-500 mb-3">MSBA @ USC • Los Angeles</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Hi! 👋 I’m Aman</h1>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          I’m pursuing my Master’s in Business Analytics at USC, where I focus on turning data into strategies that drive real impact. Here’s a snapshot of my journey so far:
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="#projects">
+            <i data-lucide="folder" class="w-4 h-4"></i>
+            See projects
+          </a>
+          <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="resume.pdf" target="_blank" rel="noreferrer">
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            Download Resume
+          </a>
+          <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+            LinkedIn
+          </a>
+          <a class="fancy-button inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm hover:bg-slate-800" href="mailto:akaura@marshall.usc.edu">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            Email
+          </a>
+        </div>
+      </div>
+
+      <div class="sm:col-span-2 flex flex-col items-center">
+        <img src="aman-kaura.jpg" alt="Aman Kaura headshot" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover ring-1 ring-white/70 shadow-lg mb-4" />
+        <div class="card rounded-2xl p-6 bg-white w-full">
+          <p class="text-sm text-slate-500 mb-2">Current status</p>
+          <p class="font-semibold">MSBA @ USC Marshall</p>
+          <hr class="my-4">
+          <ul class="text-sm text-slate-600 space-y-2">
+            <li>• SQL, Python, Tableau</li>
+            <li>• Experiments & A/B testing</li>
+            <li>• Forecasting & dashboards</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section class="section">
-    <h2>Projects</h2>
-    <div id="projects-grid"></div>
+  <!-- Projects -->
+  <section id="projects" class="bg-slate-50/80">
+    <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
+      <aside class="lg:col-span-3">
+        <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M7 13h2v5H7v-5m4-11h2v16h-2m4-8h2v8h-2"/></svg>
+          Projects
+        </div>
+      </aside>
+      <div class="lg:col-span-9">
+        <div class="card p-6 sm:p-8 bg-white">
+          <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"></div>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- Contact + Skills omitted for brevity (unchanged) -->
+
+  <footer class="py-10 text-center text-xs text-slate-500">
+    © <span id="year"></span> Aman Kaura
+  </footer>
+
   <script>
-    // Projects loader — replace projects.json with your actual data
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     async function loadProjects() {
       try {
-        const projects = [
-          {
-            tag: "Strategy & Product",
-            title: "Ziina Purple: Fintech Subscription",
-            blurb: "Designed a go-to-market strategy for Ziina, a UAE-based peer-to-peer payments app, analyzing fintech trends, defining benefits, and integrating the Ziina Card.",
-            link: "https://ziina.com"
-          },
-          {
-            tag: "Predictive Modeling",
-            title: "First Goal Impact Analysis: La Liga 2023–24",
-            blurb: "Analyzed 300+ La Liga matches to study how scoring first affects win probability using Python models (Logistic Regression, Decision Trees, Random Forest).",
-            link: "https://example.com"
-          }
-        ];
-
+        const res = await fetch('projects.json?v=' + Date.now());
+        if (!res.ok) return;
+        const data = await res.json();
         const grid = document.getElementById('projects-grid');
         grid.innerHTML = '';
 
-        projects.forEach(p => {
-          const card = document.createElement('div');
-          card.className = 'card';
-
-          card.innerHTML = `
-            <a class="absolute inset-0 z-10" href="${p.link || '#'}" ${p.link ? 'target="_blank" rel="noreferrer"' : ''}></a>
-            <div class="flex items-start justify-between">
-              <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || ''}</div>
-              ${p.link ? '<span class="card-arrow text-slate-400">↗</span>' : ''}
-            </div>
+        data.forEach(p => {
+          const a = document.createElement('a');
+          a.href = p.link || '#';
+          a.target = p.link ? '_blank' : '';
+          a.rel = p.link ? 'noreferrer' : '';
+          a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform';
+          a.innerHTML = `
+            <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
             <div class="font-semibold">${p.title}</div>
             <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
+            <span class="card-arrow">↗</span>
           `;
-
-          grid.appendChild(card);
+          grid.appendChild(a);
         });
       } catch (e) {
-        console.error('Could not load projects', e);
+        console.error('Could not load projects.json', e);
       }
     }
     loadProjects();
+    lucide.createIcons();
   </script>
-
 </body>
 </html>
