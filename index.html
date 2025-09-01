@@ -23,47 +23,75 @@
   <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Styles (glass, buttons, hover cards) -->
+  <!-- Styles (darker background + refined cards/buttons). Structure unchanged. -->
   <style>
+    /* Page background: slightly darker, with a subtle vignette for depth */
     body {
-      /* Slightly darker overall background */
-      background: linear-gradient(180deg, #e2e8f0 0%, #f1f5f9 55%, #e5e7eb 100%);
+      background:
+        radial-gradient(1200px 800px at 20% -10%, #cfd8e6 0%, rgba(207,216,230,0.55) 35%, rgba(231,235,242,0) 65%),
+        linear-gradient(180deg, #dfe6ef 0%, #e5e9f1 50%, #dde3ec 100%);
     }
 
+    /* Section tints that used bg-slate-50/80: make them a touch deeper without changing markup */
+    section.bg-slate-50\/80 {
+      background: rgba(241, 245, 249, 0.92);
+    }
+
+    /* Cards: darker glass, crisper border, richer shadow */
     .card {
-      background: rgba(255,255,255,0.7) !important;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      border: 1px solid rgba(255,255,255,0.6);
+      background: rgba(255, 255, 255, 0.62) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(15, 23, 42, 0.10);
       border-radius: 1rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow:
+        0 8px 24px rgba(2, 6, 23, 0.10),
+        0 20px 48px rgba(2, 6, 23, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 14px 34px rgba(2, 6, 23, 0.14),
+        0 28px 56px rgba(2, 6, 23, 0.10);
+      border-color: rgba(15, 23, 42, 0.16);
+    }
 
-    /* Sticky left labels for block sections */
-    .section-label { position: sticky; top: 6rem; }
+    /* Sticky left labels for block sections (unchanged behavior, slightly deeper tone) */
+    .section-label { position: sticky; top: 6rem; color: #475569; }
     @media (max-width: 1024px) { .section-label { position: static; top: auto; } }
 
-    /* Clean buttons (no spinning ring) */
+    /* Buttons: keep brand-dark look, add gentle gradient + border for definition */
     .btn {
       display: inline-flex;
       align-items: center;
       gap: .5rem;
       padding: .6rem 1rem;
       border-radius: .75rem;
-      background: #0f172a; /* slate-900 */
+      background: linear-gradient(180deg, #0f172a 0%, #0b1324 100%);
       color: #fff;
       font-size: .875rem;
       font-weight: 500;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-      box-shadow: 0 4px 12px rgba(2, 6, 23, 0.10);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.18);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
     }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(2, 6, 23, 0.18); background:#111827; }
+    .btn:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, #111827 0%, #0c1730 100%);
+      border-color: rgba(148, 163, 184, 0.45);
+      box-shadow: 0 12px 28px rgba(2, 6, 23, 0.22);
+    }
 
-    /* Soft hover for project cards */
-    .hover-card { transition: transform .25s ease, box-shadow .25s ease; }
-    .hover-card:hover { transform: translateY(-6px); box-shadow: 0 18px 46px rgba(2, 6, 23, 0.18); }
+    /* Soft hover for project cards (kept, tuned to match deeper shadow scale) */
+    .hover-card { transition: transform .22s ease, box-shadow .22s ease; }
+    .hover-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 46px rgba(2, 6, 23, 0.20);
+    }
+
+    /* Bullet aesthetics inside cards: subtle accent for markers while keeping text untouched */
+    .card .list-disc > li::marker { color: #0891b2; } /* cyan-700 marker */
   </style>
 </head> 
 
