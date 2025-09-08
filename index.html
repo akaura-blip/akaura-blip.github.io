@@ -23,21 +23,13 @@
   <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Styles (darker background + refined cards/buttons). Structure unchanged. -->
   <style>
-    /* Page background: slightly darker, with a subtle vignette for depth */
     body {
       background:
         radial-gradient(1200px 800px at 20% -10%, #cfd8e6 0%, rgba(207,216,230,0.55) 35%, rgba(231,235,242,0) 65%),
         linear-gradient(180deg, #dfe6ef 0%, #e5e9f1 50%, #dde3ec 100%);
     }
-
-    /* Section tints that used bg-slate-50/80: make them a touch deeper without changing markup */
-    section.bg-slate-50\/80 {
-      background: rgba(241, 245, 249, 0.92);
-    }
-
-    /* Cards: darker glass, crisper border, richer shadow */
+    section.bg-slate-50\/80 { background: rgba(241, 245, 249, 0.92); }
     .card {
       background: rgba(255, 255, 255, 0.62) !important;
       backdrop-filter: blur(10px);
@@ -56,12 +48,8 @@
         0 28px 56px rgba(2, 6, 23, 0.10);
       border-color: rgba(15, 23, 42, 0.16);
     }
-
-    /* Sticky left labels for block sections (unchanged behavior, slightly deeper tone) */
     .section-label { position: sticky; top: 6rem; color: #475569; }
     @media (max-width: 1024px) { .section-label { position: static; top: auto; } }
-
-    /* Buttons: keep brand-dark look, add gentle gradient + border for definition */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -82,16 +70,9 @@
       border-color: rgba(148, 163, 184, 0.45);
       box-shadow: 0 12px 28px rgba(2, 6, 23, 0.22);
     }
-
-    /* Soft hover for project cards (kept, tuned to match deeper shadow scale) */
     .hover-card { transition: transform .22s ease, box-shadow .22s ease; }
-    .hover-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 46px rgba(2, 6, 23, 0.20);
-    }
-
-    /* Bullet aesthetics inside cards: subtle accent for markers while keeping text untouched */
-    .card .list-disc > li::marker { color: #0891b2; } /* cyan-700 marker */
+    .hover-card:hover { transform: translateY(-6px); box-shadow: 0 18px 46px rgba(2, 6, 23, 0.20); }
+    .card .list-disc > li::marker { color: #0891b2; }
   </style>
 </head> 
 
@@ -126,20 +107,17 @@
           See projects
         </a>
 
-        <a class="btn"
-           href="resume.pdf" target="_blank" rel="noreferrer">
+        <a class="btn" href="resume.pdf" target="_blank" rel="noreferrer">
           <i data-lucide="file-text" class="w-4 h-4"></i>
           Download Resume
         </a>
 
-        <a class="btn"
-           href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
+        <a class="btn" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
           <i data-lucide="linkedin" class="w-4 h-4"></i>
           LinkedIn
         </a>
 
-        <a class="btn"
-           href="mailto:akaura@marshall.usc.edu">
+        <a class="btn" href="mailto:akaura@marshall.usc.edu">
           <i data-lucide="mail" class="w-4 h-4"></i>
           Email
         </a>
@@ -169,7 +147,7 @@
   </div>
 </section>
 
-<!-- Highlights (block section) -->
+<!-- Highlights -->
 <section id="highlights" class="bg-slate-50/80">
   <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
     <aside class="lg:col-span-3">
@@ -247,7 +225,9 @@
     </aside>
     <div class="lg:col-span-9">
       <div class="card p-6 sm:p-8 bg-white">
-        <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"></div>
+        <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+          <p class="text-sm text-slate-500">Loading projects…</p>
+        </div>
       </div>
     </div>
   </div>
@@ -305,71 +285,75 @@
   </div>
 </section>
 
-  <!-- Contact --> 
-  <section id="contact" class="mx-auto max-w-5xl px-4 py-12"> 
-    <div class="card rounded-2xl p-8"> 
-      <h2 class="text-2xl font-bold mb-4 flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-        </svg>
-        Say hello
-      </h2> 
-      <p class="text-slate-600 mb-4">Happy to discuss opportunities where I can add value—contact me anytime through email or LinkedIn!</p> 
-      <div class="flex flex-wrap gap-3"> 
-        <a class="btn" href="mailto:akaura@marshall.usc.edu"> 
-          <i data-lucide="mail" class="w-4 h-4"></i>
-          Email me 
-        </a> 
-        <a class="btn" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer"> 
-          <i data-lucide="linkedin" class="w-4 h-4"></i>
-          LinkedIn 
-        </a> 
-        <a class="btn" href="https://github.com" target="_blank" rel="noreferrer"> 
-          <i data-lucide="github" class="w-4 h-4"></i>
-          GitHub 
-        </a> 
-      </div> 
+<!-- Contact --> 
+<section id="contact" class="mx-auto max-w-5xl px-4 py-12"> 
+  <div class="card rounded-2xl p-8"> 
+    <h2 class="text-2xl font-bold mb-4 flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+      </svg>
+      Say hello
+    </h2> 
+    <p class="text-slate-600 mb-4">Happy to discuss opportunities where I can add value—contact me anytime through email or LinkedIn!</p> 
+    <div class="flex flex-wrap gap-3"> 
+      <a class="btn" href="mailto:akaura@marshall.usc.edu"> 
+        <i data-lucide="mail" class="w-4 h-4"></i>
+        Email me 
+      </a> 
+      <a class="btn" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer"> 
+        <i data-lucide="linkedin" class="w-4 h-4"></i>
+        LinkedIn 
+      </a> 
+      <a class="btn" href="https://github.com" target="_blank" rel="noreferrer"> 
+        <i data-lucide="github" class="w-4 h-4"></i>
+        GitHub 
+      </a> 
     </div> 
-  </section> 
+  </div> 
+</section> 
 
-  <footer class="py-10 text-center text-xs text-slate-500"> 
-    © <span id="year"></span> Aman Kaura 
-  </footer> 
+<footer class="py-10 text-center text-xs text-slate-500"> 
+  © <span id="year"></span> Aman Kaura 
+</footer> 
 
-  <script> 
-    document.getElementById('year').textContent = new Date().getFullYear(); 
+<script> 
+  document.getElementById('year').textContent = new Date().getFullYear(); 
 
-    // Projects loader — reads projects.json and renders cards
-    async function loadProjects() { 
-      try { 
-        const res = await fetch('projects.json?v=' + Date.now()); // cache-buster
-        if (!res.ok) return; 
-        const data = await res.json(); 
-        const grid = document.getElementById('projects-grid'); 
-        grid.innerHTML = ''; 
-
-        data.forEach(p => { 
-          const a = document.createElement('a'); 
-          a.href = p.link || '#'; 
-          a.target = p.link ? '_blank' : ''; 
-          a.rel = p.link ? 'noreferrer' : ''; 
-          // Clean hover only (no ring)
-          a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform'; 
-          a.innerHTML = `
-            <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
-            <div class="font-semibold">${p.title}</div>
-            <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
-          `; 
-          grid.appendChild(a); 
-        }); 
-      } catch (e) { 
-        console.error('Could not load projects.json', e); 
+  // Projects loader — reads projects.json and renders cards (root site)
+  async function loadProjects() { 
+    const grid = document.getElementById('projects-grid');
+    try { 
+      const res = await fetch('./projects.json?cb=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) {
+        grid.innerHTML = '<p class="text-sm text-slate-500">Could not load projects.json (' + res.status + ').</p>';
+        return;
       } 
+      const data = await res.json(); 
+      if (!Array.isArray(data) || data.length === 0) {
+        grid.innerHTML = '<p class="text-sm text-slate-500">No projects to show yet.</p>';
+        return;
+      }
+      grid.innerHTML = ''; 
+      data.forEach(p => { 
+        const a = document.createElement('a'); 
+        a.href = p.link || '#'; 
+        if (p.link) { a.target = '_blank'; a.rel = 'noreferrer'; }
+        a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform'; 
+        a.innerHTML = `
+          <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
+          <div class="font-semibold">${p.title}</div>
+          <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
+        `; 
+        grid.appendChild(a); 
+      }); 
+    } catch (e) { 
+      console.error('Could not load projects.json', e); 
+      grid.innerHTML = '<p class="text-sm text-slate-500">Error loading projects.</p>';
     } 
-    loadProjects(); 
+  } 
+  loadProjects(); 
 
-    // Initialize Lucide icons
-    lucide.createIcons();
-  </script> 
+  lucide.createIcons();
+</script> 
 </body> 
 </html>

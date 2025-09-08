@@ -10,5 +10,11 @@
     "blurb": "Analyzed 300+ La Liga matches to study how scoring first affects win probability. Built predictive models using Python (Logistic Regression, Decision Trees, Random Forest) and used clustering to profile team strategies.",
     "tag": "Predictive Modeling",
     "link": "sports-analytics-salah.pdf"
-  }
+  },
+  {
+      "title": "Cafe Sales Analysis",
+      "blurb": "Summarized key trends and demand forecasts for a café using Python analysis. Clear takeaways for pricing, product mix, and inventory planning.",
+      "tag": "Data Analytics",
+      "link": "Cafe_Sales_Analysis_Deck.pdf"
+    }
 ]
