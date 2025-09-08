@@ -14,9 +14,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } }
-      }
+      theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } } }
     }
   </script>
 
@@ -36,30 +34,21 @@
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(15, 23, 42, 0.10);
       border-radius: 1rem;
-      box-shadow:
-        0 8px 24px rgba(2, 6, 23, 0.10),
-        0 20px 48px rgba(2, 6, 23, 0.08);
+      box-shadow: 0 8px 24px rgba(2, 6, 23, 0.10), 0 20px 48px rgba(2, 6, 23, 0.08);
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .card:hover {
       transform: translateY(-3px);
-      box-shadow:
-        0 14px 34px rgba(2, 6, 23, 0.14),
-        0 28px 56px rgba(2, 6, 23, 0.10);
+      box-shadow: 0 14px 34px rgba(2, 6, 23, 0.14), 0 28px 56px rgba(2, 6, 23, 0.10);
       border-color: rgba(15, 23, 42, 0.16);
     }
     .section-label { position: sticky; top: 6rem; color: #475569; }
     @media (max-width: 1024px) { .section-label { position: static; top: auto; } }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .6rem 1rem;
-      border-radius: .75rem;
-      background: linear-gradient(180deg, #0f172a 0%, #0b1324 100%);
-      color: #fff;
-      font-size: .875rem;
-      font-weight: 500;
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .6rem 1rem; border-radius: .75rem;
+      background: linear-gradient(180deg, #0f172a 0%, #0b1324 100%); color: #fff;
+      font-size: .875rem; font-weight: 500;
       border: 1px solid rgba(148, 163, 184, 0.25);
       box-shadow: 0 6px 18px rgba(2, 6, 23, 0.18);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
@@ -93,46 +82,23 @@
   <!-- Hero -->
 <section id="home" class="mx-auto max-w-5xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-16">
   <div class="grid sm:grid-cols-5 gap-8 items-center">
-    <!-- Left: intro + CTAs -->
     <div class="sm:col-span-3">
       <p class="text-xs uppercase tracking-widest text-slate-500 mb-3">MSBA @ USC • Los Angeles</p>
       <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Hi! I’m Aman</h1>
       <p class="mt-4 text-slate-600 leading-relaxed">
         Currently pursuing my Master’s in Business Analytics at USC, where I focus on turning data into strategies that drive real impact. Here’s a snapshot of my journey so far:
       </p>
-
       <div class="mt-6 flex flex-wrap gap-3">
-        <a class="btn" href="#projects">
-          <i data-lucide="folder" class="w-4 h-4"></i>
-          See projects
-        </a>
-
-        <a class="btn" href="resume.pdf" target="_blank" rel="noreferrer">
-          <i data-lucide="file-text" class="w-4 h-4"></i>
-          Download Resume
-        </a>
-
-        <a class="btn" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
-          <i data-lucide="linkedin" class="w-4 h-4"></i>
-          LinkedIn
-        </a>
-
-        <a class="btn" href="mailto:akaura@marshall.usc.edu">
-          <i data-lucide="mail" class="w-4 h-4"></i>
-          Email
-        </a>
+        <a class="btn" href="#projects"><i data-lucide="folder" class="w-4 h-4"></i>See projects</a>
+        <a class="btn" href="resume.pdf" target="_blank" rel="noreferrer"><i data-lucide="file-text" class="w-4 h-4"></i>Download Resume</a>
+        <a class="btn" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer"><i data-lucide="linkedin" class="w-4 h-4"></i>LinkedIn</a>
+        <a class="btn" href="mailto:akaura@marshall.usc.edu"><i data-lucide="mail" class="w-4 h-4"></i>Email</a>
       </div>
     </div>
-
-    <!-- Right: headshot + status card -->
     <div class="sm:col-span-2 flex flex-col items-center">
-      <img
-        src="aman-kaura.jpg"
-        alt="Aman Kaura headshot"
+      <img src="aman-kaura.jpg" alt="Aman Kaura headshot"
         class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover ring-1 ring-white/70 shadow-lg mb-4"
-        loading="eager"
-        decoding="async"
-      />
+        loading="eager" decoding="async" />
       <div class="card rounded-2xl p-6 bg-white w-full">
         <p class="text-sm text-slate-500 mb-2">Current status</p>
         <p class="font-semibold">MSBA @ USC Marshall</p>
@@ -152,19 +118,17 @@
   <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
     <aside class="lg:col-span-3">
       <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.25l-6.16 3.73 1.64-7.03-5.48-4.75 7.19-.62L12 2l2.81 6.58 7.19.62-5.48 4.75 1.64 7.03z"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.25l-6.16 3.73 1.64-7.03-5.48-4.75 7.19-.62L12 2l2.81 6.58 7.19.62-5.48 4.75 1.64 7.03z"/></svg>
         Highlights
       </div>
     </aside>
     <div class="lg:col-span-9">
       <div class="card p-6 sm:p-8 bg-white">
         <ul class="text-slate-700 space-y-3 list-disc list-outside pl-6">
-          <li class="whitespace-normal">Scaled Noon's Abu Dhabi product portfolio with 200+ new SKUs launched.</li>
-          <li class="whitespace-normal">Improved vendor activation by 25% and reduced time to market by 15%.</li>
-          <li class="whitespace-normal">Built financial models at RobtStone to help guide investments.</li>
-          <li class="whitespace-normal">Applied advanced analytics in USC’s MSBA program, collaborating with cross-functional teams to build predictive models and deliver business insights across sports, fintech, and strategy projects.</li>
+          <li>Scaled Noon's Abu Dhabi product portfolio with 200+ new SKUs launched.</li>
+          <li>Improved vendor activation by 25% and reduced time to market by 15%.</li>
+          <li>Built financial models at RobtStone to help guide investments.</li>
+          <li>Applied advanced analytics in USC’s MSBA program across sports, fintech, and strategy projects.</li>
         </ul>
       </div>
     </div>
@@ -186,8 +150,8 @@
         <p class="text-sm text-slate-500">Dubai • 2023</p>
         <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
           <li>Drove market expansion initiatives and coordinated product launch planning.</li>
-          <li>Worked with cross-functional teams to align execution with business goals.</li>
-          <li>Analyzed customer and sales data to guide strategic decisions.</li>
+          <li>Aligned cross-functional execution with business goals.</li>
+          <li>Analyzed customer and sales data to guide decisions.</li>
         </ul>
       </article>
 
@@ -195,9 +159,9 @@
         <h3 class="font-semibold">RobtStone — Financial Analyst Intern</h3>
         <p class="text-sm text-slate-500">Abu Dhabi • 2022</p>
         <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
-          <li>Assessed potential oil & gas investment projects by analyzing financial viability and operational risks.</li>
-          <li>Built financial models and delivered board-ready recommendations.</li>
-          <li>Supported leadership in assessing risk and return on new projects.</li>
+          <li>Assessed oil & gas investment viability and risk.</li>
+          <li>Built financial models; delivered board-ready recommendations.</li>
+          <li>Supported leadership on capital allocation decisions.</li>
         </ul>
       </article>
 
@@ -205,9 +169,9 @@
         <h3 class="font-semibold">RCW Media Group — Market Research Intern</h3>
         <p class="text-sm text-slate-500">Los Angeles • 2022</p>
         <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
-          <li>Developed campaign performance dashboards and client reports.</li>
-          <li>Translated analytics into clear, actionable recommendations.</li>
-          <li>Collaborated with creative and account teams to optimize results.</li>
+          <li>Built campaign dashboards and client reports.</li>
+          <li>Translated analytics into actionable insights.</li>
+          <li>Partnered with creative/account teams to optimize results.</li>
         </ul>
       </article>
     </div>
@@ -242,11 +206,9 @@
         Skills
       </div>
     </aside>
-
     <div class="lg:col-span-9">
       <div class="card p-6 sm:p-8 bg-white">
         <div class="grid sm:grid-cols-3 gap-6">
-          <!-- Data & Analytics -->
           <div>
             <h3 class="font-semibold mb-2">Data &amp; Analytics</h3>
             <ul class="text-sm text-slate-700 space-y-1 list-disc pl-5">
@@ -257,8 +219,6 @@
               <li>A/B testing and KPI tracking</li>
             </ul>
           </div>
-
-          <!-- Business & Product -->
           <div>
             <h3 class="font-semibold mb-2">Business &amp; Product</h3>
             <ul class="text-sm text-slate-700 space-y-1 list-disc pl-5">
@@ -268,8 +228,6 @@
               <li>Competitive and market analysis</li>
             </ul>
           </div>
-
-          <!-- Operations & Tools -->
           <div>
             <h3 class="font-semibold mb-2">Operations &amp; Tools</h3>
             <ul class="text-sm text-slate-700 space-y-1 list-disc pl-5">
@@ -281,7 +239,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -296,18 +253,9 @@
     </h2> 
     <p class="text-slate-600 mb-4">Happy to discuss opportunities where I can add value—contact me anytime through email or LinkedIn!</p> 
     <div class="flex flex-wrap gap-3"> 
-      <a class="btn" href="mailto:akaura@marshall.usc.edu"> 
-        <i data-lucide="mail" class="w-4 h-4"></i>
-        Email me 
-      </a> 
-      <a class="btn" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer"> 
-        <i data-lucide="linkedin" class="w-4 h-4"></i>
-        LinkedIn 
-      </a> 
-      <a class="btn" href="https://github.com" target="_blank" rel="noreferrer"> 
-        <i data-lucide="github" class="w-4 h-4"></i>
-        GitHub 
-      </a> 
+      <a class="btn" href="mailto:akaura@marshall.usc.edu"><i data-lucide="mail" class="w-4 h-4"></i>Email me</a> 
+      <a class="btn" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer"><i data-lucide="linkedin" class="w-4 h-4"></i>LinkedIn</a> 
+      <a class="btn" href="https://github.com" target="_blank" rel="noreferrer"><i data-lucide="github" class="w-4 h-4"></i>GitHub</a> 
     </div> 
   </div> 
 </section> 
@@ -316,44 +264,57 @@
   © <span id="year"></span> Aman Kaura 
 </footer> 
 
-<script> 
-  document.getElementById('year').textContent = new Date().getFullYear(); 
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Projects loader — reads projects.json and renders cards (root site)
-  async function loadProjects() { 
+  function renderProjects(data) {
     const grid = document.getElementById('projects-grid');
-    try { 
-      const res = await fetch('./projects.json?cb=' + Date.now(), { cache: 'no-store' });
+    if (!Array.isArray(data) || data.length === 0) {
+      grid.innerHTML = '<p class="text-sm text-slate-500">No projects to show yet.</p>';
+      return;
+    }
+    grid.innerHTML = '';
+    data.forEach(p => {
+      const a = document.createElement('a');
+      a.href = p.link || '#';
+      if (p.link) { a.target = '_blank'; a.rel = 'noreferrer'; }
+      a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform';
+      a.innerHTML = `
+        <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
+        <div class="font-semibold">${p.title}</div>
+        <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
+      `;
+      grid.appendChild(a);
+    });
+  }
+
+  async function loadProjects() {
+    const grid = document.getElementById('projects-grid');
+    const url = './projects.json?cb=' + Date.now();
+    try {
+      const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) {
+        console.error('projects.json fetch failed:', res.status, res.statusText);
         grid.innerHTML = '<p class="text-sm text-slate-500">Could not load projects.json (' + res.status + ').</p>';
         return;
-      } 
-      const data = await res.json(); 
-      if (!Array.isArray(data) || data.length === 0) {
-        grid.innerHTML = '<p class="text-sm text-slate-500">No projects to show yet.</p>';
+      }
+      let data;
+      try {
+        data = await res.json();
+      } catch (parseErr) {
+        console.error('projects.json parse error:', parseErr);
+        grid.innerHTML = '<p class="text-sm text-slate-500">Error reading projects.json (invalid JSON).</p>';
         return;
       }
-      grid.innerHTML = ''; 
-      data.forEach(p => { 
-        const a = document.createElement('a'); 
-        a.href = p.link || '#'; 
-        if (p.link) { a.target = '_blank'; a.rel = 'noreferrer'; }
-        a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform'; 
-        a.innerHTML = `
-          <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
-          <div class="font-semibold">${p.title}</div>
-          <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
-        `; 
-        grid.appendChild(a); 
-      }); 
-    } catch (e) { 
-      console.error('Could not load projects.json', e); 
+      renderProjects(data);
+    } catch (e) {
+      console.error('Could not load projects.json', e);
       grid.innerHTML = '<p class="text-sm text-slate-500">Error loading projects.</p>';
-    } 
-  } 
-  loadProjects(); 
+    }
+  }
+  loadProjects();
 
   lucide.createIcons();
-</script> 
-</body> 
+</script>
+</body>
 </html>
