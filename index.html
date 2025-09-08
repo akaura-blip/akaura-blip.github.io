@@ -6,6 +6,9 @@
   <title>Aman Kaura — Portfolio</title> 
   <meta name="description" content="Portfolio of Aman Kaura — MSBA candidate and data/strategy professional."/> 
 
+  <!-- Ensure all relative paths resolve under the project-site subpath -->
+  <base href="/akaura.github.io/">
+
   <link rel="preconnect" href="https://fonts.googleapis.com"> 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
@@ -247,7 +250,10 @@
     </aside>
     <div class="lg:col-span-9">
       <div class="card p-6 sm:p-8 bg-white">
-        <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6"></div>
+        <!-- Loading placeholder (will be replaced by JS) -->
+        <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+          <p class="text-sm text-slate-500">Loading projects…</p>
+        </div>
       </div>
     </div>
   </div>
@@ -341,39 +347,43 @@
 
     // Projects loader — reads projects.json and renders cards
     async function loadProjects() { 
-  try { 
-    const res = await fetch('./projects.json?cb=' + Date.now(), { cache: 'no-store' }); // explicit relative path + no cache
-    if (!res.ok) {
-      console.error('projects.json fetch failed:', res.status, res.statusText);
-      return;
+      const grid = document.getElementById('projects-grid');
+      try { 
+        const url = 'projects.json?cb=' + Date.now(); // resolved by <base>
+        const res = await fetch(url, { cache: 'no-store' });
+        console.log('[projects] fetching', url, res.status, res.statusText);
+
+        if (!res.ok) {
+          grid.innerHTML = '<p class="text-sm text-slate-500">Could not load projects.json (' + res.status + ').</p>';
+          return;
+        } 
+
+        const data = await res.json(); 
+        if (!Array.isArray(data) || data.length === 0) {
+          grid.innerHTML = '<p class="text-sm text-slate-500">No projects to show yet.</p>';
+          return;
+        }
+
+        grid.innerHTML = ''; 
+
+        data.forEach(p => { 
+          const a = document.createElement('a'); 
+          a.href = p.link || '#'; 
+          if (p.link) { a.target = '_blank'; a.rel = 'noreferrer'; }
+          a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform'; 
+          a.innerHTML = `
+            <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
+            <div class="font-semibold">${p.title}</div>
+            <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
+          `; 
+          grid.appendChild(a); 
+        }); 
+      } catch (e) { 
+        console.error('Could not load projects.json', e); 
+        grid.innerHTML = '<p class="text-sm text-slate-500">Error loading projects.</p>';
+      } 
     } 
-
-    const data = await res.json(); 
-    const grid = document.getElementById('projects-grid'); 
-    grid.innerHTML = ''; 
-
-    data.forEach(p => { 
-      const a = document.createElement('a'); 
-      a.href = p.link || '#'; 
-      if (p.link) {
-        a.target = '_blank'; 
-        a.rel = 'noreferrer'; 
-      }
-      // Clean hover only (no ring)
-      a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform'; 
-      a.innerHTML = `
-        <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
-        <div class="font-semibold">${p.title}</div>
-        <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
-      `; 
-      grid.appendChild(a); 
-    }); 
-  } catch (e) { 
-    console.error('Could not load projects.json', e); 
-  } 
-} 
-
-loadProjects(); 
+    loadProjects(); 
 
     // Initialize Lucide icons
     lucide.createIcons();
