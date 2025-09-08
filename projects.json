@@ -1,5 +1,11 @@
 [
   {
+    "title": "Cafe Sales Analysis",
+    "blurb": "Summarized key trends and demand forecasts for a café using Python analysis. Clear takeaways for pricing, product mix, and inventory planning.",
+    "tag": "Data Analytics",
+    "link": "Cafe_Sales_Analysis_Deck.pdf"
+  }
+  {
     "title": "Ziina Purple: Fintech Subscription",
     "blurb": "Designed a go-to-market strategy for Ziina, a UAE-based peer-to-peer payments app, analyzing fintech trends, defining benefits, and integrating the Ziina Card.",
     "tag": "Strategy & Product",
@@ -10,5 +16,5 @@
     "blurb": "Analyzed 300+ La Liga matches to study how scoring first affects win probability. Built predictive models using Python (Logistic Regression, Decision Trees, Random Forest) and used clustering to profile team strategies.",
     "tag": "Predictive Modeling",
     "link": "sports-analytics-salah.pdf"
-  }
+  },
 ]
