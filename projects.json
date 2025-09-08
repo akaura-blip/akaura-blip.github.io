@@ -1,4 +1,10 @@
 [
+   {
+      "title": "Cafe Analytics: Sales Trends & Demand Forecasting",
+      "blurb": "Analyzed over 140,000 point-of-sale transactions for a NYC café using Python (Pandas, Matplotlib, forecasting models) to identify revenue patterns, optimize product mix, and forecast demand for data-driven pricing and inventory decisions.",
+      "tag": "Data Analytics",
+      "link": "Cafe_Sales_Analysis_Deck.pdf"
+    }
   {
     "title": "Ziina Purple: Fintech Subscription",
     "blurb": "Designed a go-to-market strategy for Ziina, a UAE-based peer-to-peer payments app, analyzing fintech trends, defining benefits, and integrating the Ziina Card.",
@@ -11,10 +17,4 @@
     "tag": "Predictive Modeling",
     "link": "sports-analytics-salah.pdf"
   },
-  {
-      "title": "Cafe Sales Analysis",
-      "blurb": "Summarized key trends and demand forecasts for a café using Python analysis. Clear takeaways for pricing, product mix, and inventory planning.",
-      "tag": "Data Analytics",
-      "link": "Cafe_Sales_Analysis_Deck.pdf"
-    }
 ]
