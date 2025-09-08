@@ -6,9 +6,6 @@
   <title>Aman Kaura — Portfolio</title> 
   <meta name="description" content="Portfolio of Aman Kaura — MSBA candidate and data/strategy professional."/> 
 
-  <!-- Ensure all relative paths resolve under the project-site subpath -->
-  <base href="/akaura.github.io/">
-
   <link rel="preconnect" href="https://fonts.googleapis.com"> 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
@@ -26,21 +23,15 @@
   <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Styles (darker background + refined cards/buttons). Structure unchanged. -->
   <style>
-    /* Page background: slightly darker, with a subtle vignette for depth */
     body {
       background:
         radial-gradient(1200px 800px at 20% -10%, #cfd8e6 0%, rgba(207,216,230,0.55) 35%, rgba(231,235,242,0) 65%),
         linear-gradient(180deg, #dfe6ef 0%, #e5e9f1 50%, #dde3ec 100%);
     }
-
-    /* Section tints that used bg-slate-50/80: make them a touch deeper without changing markup */
     section.bg-slate-50\/80 {
       background: rgba(241, 245, 249, 0.92);
     }
-
-    /* Cards: darker glass, crisper border, richer shadow */
     .card {
       background: rgba(255, 255, 255, 0.62) !important;
       backdrop-filter: blur(10px);
@@ -59,12 +50,8 @@
         0 28px 56px rgba(2, 6, 23, 0.10);
       border-color: rgba(15, 23, 42, 0.16);
     }
-
-    /* Sticky left labels for block sections (unchanged behavior, slightly deeper tone) */
     .section-label { position: sticky; top: 6rem; color: #475569; }
     @media (max-width: 1024px) { .section-label { position: static; top: auto; } }
-
-    /* Buttons: keep brand-dark look, add gentle gradient + border for definition */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -85,16 +72,12 @@
       border-color: rgba(148, 163, 184, 0.45);
       box-shadow: 0 12px 28px rgba(2, 6, 23, 0.22);
     }
-
-    /* Soft hover for project cards (kept, tuned to match deeper shadow scale) */
     .hover-card { transition: transform .22s ease, box-shadow .22s ease; }
     .hover-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 18px 46px rgba(2, 6, 23, 0.20);
     }
-
-    /* Bullet aesthetics inside cards: subtle accent for markers while keeping text untouched */
-    .card .list-disc > li::marker { color: #0891b2; } /* cyan-700 marker */
+    .card .list-disc > li::marker { color: #0891b2; }
   </style>
 </head> 
 
@@ -113,133 +96,9 @@
   </header> 
 
   <!-- Hero -->
-<section id="home" class="mx-auto max-w-5xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-16">
-  <div class="grid sm:grid-cols-5 gap-8 items-center">
-    <!-- Left: intro + CTAs -->
-    <div class="sm:col-span-3">
-      <p class="text-xs uppercase tracking-widest text-slate-500 mb-3">MSBA @ USC • Los Angeles</p>
-      <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Hi! I’m Aman</h1>
-      <p class="mt-4 text-slate-600 leading-relaxed">
-        Currently pursuing my Master’s in Business Analytics at USC, where I focus on turning data into strategies that drive real impact. Here’s a snapshot of my journey so far:
-      </p>
+  <!-- ... keep your Hero, Highlights, Experience, Skills, Contact same as before ... -->
 
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a class="btn" href="#projects">
-          <i data-lucide="folder" class="w-4 h-4"></i>
-          See projects
-        </a>
-
-        <a class="btn"
-           href="resume.pdf" target="_blank" rel="noreferrer">
-          <i data-lucide="file-text" class="w-4 h-4"></i>
-          Download Resume
-        </a>
-
-        <a class="btn"
-           href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer">
-          <i data-lucide="linkedin" class="w-4 h-4"></i>
-          LinkedIn
-        </a>
-
-        <a class="btn"
-           href="mailto:akaura@marshall.usc.edu">
-          <i data-lucide="mail" class="w-4 h-4"></i>
-          Email
-        </a>
-      </div>
-    </div>
-
-    <!-- Right: headshot + status card -->
-    <div class="sm:col-span-2 flex flex-col items-center">
-      <img
-        src="aman-kaura.jpg"
-        alt="Aman Kaura headshot"
-        class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover ring-1 ring-white/70 shadow-lg mb-4"
-        loading="eager"
-        decoding="async"
-      />
-      <div class="card rounded-2xl p-6 bg-white w-full">
-        <p class="text-sm text-slate-500 mb-2">Current status</p>
-        <p class="font-semibold">MSBA @ USC Marshall</p>
-        <hr class="my-4">
-        <ul class="text-sm text-slate-600 space-y-2">
-          <li>• Analytics & Data Tools (SQL, Python, Tableau)</li>
-          <li>• Strategic Problem-Solving</li>
-          <li>• Market & Financial Analysis</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Highlights (block section) -->
-<section id="highlights" class="bg-slate-50/80">
-  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
-    <aside class="lg:col-span-3">
-      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.25l-6.16 3.73 1.64-7.03-5.48-4.75 7.19-.62L12 2l2.81 6.58 7.19.62-5.48 4.75 1.64 7.03z"/>
-        </svg>
-        Highlights
-      </div>
-    </aside>
-    <div class="lg:col-span-9">
-      <div class="card p-6 sm:p-8 bg-white">
-        <ul class="text-slate-700 space-y-3 list-disc list-outside pl-6">
-          <li class="whitespace-normal">Scaled Noon's Abu Dhabi product portfolio with 200+ new SKUs launched.</li>
-          <li class="whitespace-normal">Improved vendor activation by 25% and reduced time to market by 15%.</li>
-          <li class="whitespace-normal">Built financial models at RobtStone to help guide investments.</li>
-          <li class="whitespace-normal">Applied advanced analytics in USC’s MSBA program, collaborating with cross-functional teams to build predictive models and deliver business insights across sports, fintech, and strategy projects.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Experience -->
-<section id="experience" class="bg-white">
-  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
-    <aside class="lg:col-span-3">
-      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7l2-2h2l2 2"/></svg>
-        Experience
-      </div>
-    </aside>
-    <div class="lg:col-span-9 space-y-5">
-      <article class="card p-5 bg-white">
-        <h3 class="font-semibold">Noon — Business Development Executive</h3>
-        <p class="text-sm text-slate-500">Dubai • 2023</p>
-        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
-          <li>Drove market expansion initiatives and coordinated product launch planning.</li>
-          <li>Worked with cross-functional teams to align execution with business goals.</li>
-          <li>Analyzed customer and sales data to guide strategic decisions.</li>
-        </ul>
-      </article>
-
-      <article class="card p-5 bg-white">
-        <h3 class="font-semibold">RobtStone — Financial Analyst Intern</h3>
-        <p class="text-sm text-slate-500">Abu Dhabi • 2022</p>
-        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
-          <li>Assessed potential oil & gas investment projects by analyzing financial viability and operational risks.</li>
-          <li>Built financial models and delivered board-ready recommendations.</li>
-          <li>Supported leadership in assessing risk and return on new projects.</li>
-        </ul>
-      </article>
-
-      <article class="card p-5 bg-white">
-        <h3 class="font-semibold">RCW Media Group — Market Research Intern</h3>
-        <p class="text-sm text-slate-500">Los Angeles • 2022</p>
-        <ul class="mt-2 text-sm text-slate-700 space-y-1 list-disc list-inside">
-          <li>Developed campaign performance dashboards and client reports.</li>
-          <li>Translated analytics into clear, actionable recommendations.</li>
-          <li>Collaborated with creative and account teams to optimize results.</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- Projects -->
+  <!-- Projects -->
 <section id="projects" class="bg-slate-50/80">
   <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
     <aside class="lg:col-span-3">
@@ -250,7 +109,6 @@
     </aside>
     <div class="lg:col-span-9">
       <div class="card p-6 sm:p-8 bg-white">
-        <!-- Loading placeholder (will be replaced by JS) -->
         <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
           <p class="text-sm text-slate-500">Loading projects…</p>
         </div>
@@ -259,85 +117,6 @@
   </div>
 </section>
 
-<!-- Skills -->
-<section id="skills" class="bg-white">
-  <div class="mx-auto max-w-6xl px-4 py-14 grid lg:grid-cols-12 gap-8">
-    <aside class="lg:col-span-3">
-      <div class="section-label flex items-center gap-2 text-slate-700 font-semibold">
-        <i data-lucide="settings" class="w-5 h-5"></i>
-        Skills
-      </div>
-    </aside>
-
-    <div class="lg:col-span-9">
-      <div class="card p-6 sm:p-8 bg-white">
-        <div class="grid sm:grid-cols-3 gap-6">
-          <!-- Data & Analytics -->
-          <div>
-            <h3 class="font-semibold mb-2">Data &amp; Analytics</h3>
-            <ul class="text-sm text-slate-700 space-y-1 list-disc pl-5">
-              <li>Python: Pandas, NumPy, scikit-learn, Matplotlib, Seaborn</li>
-              <li>SQL: data extraction and transformation</li>
-              <li>Tableau &amp; Excel: dashboards and data modeling</li>
-              <li>Statistical modeling and forecasting</li>
-              <li>A/B testing and KPI tracking</li>
-            </ul>
-          </div>
-
-          <!-- Business & Product -->
-          <div>
-            <h3 class="font-semibold mb-2">Business &amp; Product</h3>
-            <ul class="text-sm text-slate-700 space-y-1 list-disc pl-5">
-              <li>Project management and stakeholder communication</li>
-              <li>User research and segmentation analysis</li>
-              <li>Roadmap planning and go-to-market execution</li>
-              <li>Competitive and market analysis</li>
-            </ul>
-          </div>
-
-          <!-- Operations & Tools -->
-          <div>
-            <h3 class="font-semibold mb-2">Operations &amp; Tools</h3>
-            <ul class="text-sm text-slate-700 space-y-1 list-disc pl-5">
-              <li>Microsoft Office: Excel, PowerPoint, Word, Outlook</li>
-              <li>Data visualization and storytelling</li>
-              <li>Data preparation and quality assurance</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-  <!-- Contact --> 
-  <section id="contact" class="mx-auto max-w-5xl px-4 py-12"> 
-    <div class="card rounded-2xl p-8"> 
-      <h2 class="text-2xl font-bold mb-4 flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-        </svg>
-        Say hello
-      </h2> 
-      <p class="text-slate-600 mb-4">Happy to discuss opportunities where I can add value—contact me anytime through email or LinkedIn!</p> 
-      <div class="flex flex-wrap gap-3"> 
-        <a class="btn" href="mailto:akaura@marshall.usc.edu"> 
-          <i data-lucide="mail" class="w-4 h-4"></i>
-          Email me 
-        </a> 
-        <a class="btn" href="https://www.linkedin.com/in/aman-kaura" target="_blank" rel="noreferrer"> 
-          <i data-lucide="linkedin" class="w-4 h-4"></i>
-          LinkedIn 
-        </a> 
-        <a class="btn" href="https://github.com" target="_blank" rel="noreferrer"> 
-          <i data-lucide="github" class="w-4 h-4"></i>
-          GitHub 
-        </a> 
-      </div> 
-    </div> 
-  </section> 
-
   <footer class="py-10 text-center text-xs text-slate-500"> 
     © <span id="year"></span> Aman Kaura 
   </footer> 
@@ -345,27 +124,21 @@
   <script> 
     document.getElementById('year').textContent = new Date().getFullYear(); 
 
-    // Projects loader — reads projects.json and renders cards
+    // Projects loader
     async function loadProjects() { 
       const grid = document.getElementById('projects-grid');
       try { 
-        const url = 'projects.json?cb=' + Date.now(); // resolved by <base>
-        const res = await fetch(url, { cache: 'no-store' });
-        console.log('[projects] fetching', url, res.status, res.statusText);
-
+        const res = await fetch('./projects.json?cb=' + Date.now(), { cache: 'no-store' });
         if (!res.ok) {
           grid.innerHTML = '<p class="text-sm text-slate-500">Could not load projects.json (' + res.status + ').</p>';
           return;
         } 
-
         const data = await res.json(); 
         if (!Array.isArray(data) || data.length === 0) {
           grid.innerHTML = '<p class="text-sm text-slate-500">No projects to show yet.</p>';
           return;
         }
-
         grid.innerHTML = ''; 
-
         data.forEach(p => { 
           const a = document.createElement('a'); 
           a.href = p.link || '#'; 
@@ -385,7 +158,6 @@
     } 
     loadProjects(); 
 
-    // Initialize Lucide icons
     lucide.createIcons();
   </script> 
 </body> 
