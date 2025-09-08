@@ -339,34 +339,47 @@
   <script> 
     document.getElementById('year').textContent = new Date().getFullYear(); 
 
-    // Projects loader — reads projects.json and renders cards
-    async function loadProjects() { 
-      try { 
-        const res = await fetch('projects.json?v=' + Date.now()); // cache-buster
-        if (!res.ok) return; 
-        const data = await res.json(); 
-        const grid = document.getElementById('projects-grid'); 
-        grid.innerHTML = ''; 
+     // Projects loader — reads projects.json and renders cards
+  async function loadProjects() {
+    const grid = document.getElementById('projects-grid');
 
-        data.forEach(p => { 
-          const a = document.createElement('a'); 
-          a.href = p.link || '#'; 
-          a.target = p.link ? '_blank' : ''; 
-          a.rel = p.link ? 'noreferrer' : ''; 
-          // Clean hover only (no ring)
-          a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform'; 
-          a.innerHTML = `
-            <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
-            <div class="font-semibold">${p.title}</div>
-            <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
-          `; 
-          grid.appendChild(a); 
-        }); 
-      } catch (e) { 
-        console.error('Could not load projects.json', e); 
-      } 
-    } 
-    loadProjects(); 
+    try {
+      const res = await fetch('./projects.json?cb=' + Date.now()); // explicit relative path
+      if (!res.ok) {
+        console.error('projects.json fetch failed:', res.status, res.statusText);
+        grid.innerHTML = '<p class="text-sm text-slate-500">Could not load projects.json.</p>';
+        return;
+      }
+
+      const data = await res.json();
+      if (!Array.isArray(data) || data.length === 0) {
+        grid.innerHTML = '<p class="text-sm text-slate-500">No projects to show yet.</p>';
+        return;
+      }
+
+      grid.innerHTML = '';
+      data.forEach(p => {
+        const a = document.createElement('a');
+        a.href = p.link || '#';
+        if (p.link) {
+          a.target = '_blank';
+          a.rel = 'noreferrer';
+        }
+        a.className = 'card hover-card block rounded-2xl p-5 transition will-change-transform';
+        a.innerHTML = `
+          <div class="text-xs uppercase tracking-wide text-slate-500 mb-2">${p.tag || 'Case Study'}</div>
+          <div class="font-semibold">${p.title}</div>
+          <p class="text-sm text-slate-600 mt-2">${p.blurb}</p>
+        `;
+        grid.appendChild(a);
+      });
+    } catch (e) {
+      console.error('Could not load projects.json', e);
+      grid.innerHTML = '<p class="text-sm text-slate-500">Error loading projects.</p>';
+    }
+  }
+  loadProjects();
+</script>
 
     // Initialize Lucide icons
     lucide.createIcons();
